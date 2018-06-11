@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Text;
 
-namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha.Helper
+namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
-    public static class HtmlHelperExtensions
+    public static class ReCaptchaHelperExtensions
     {
         public static HtmlString InvisibleReCaptchaFor(this IHtmlHelper htmlHelper, string publicKey, string elementId, string @event = "click", string beforeReCaptcha = null, bool useCookie = false)
         {
