@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
-using Avassy.AspNetCore.Mvc.ActionFilters.Services;
 
-namespace Avassy.AspNetCore.Mvc.ActionFilters
+namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
     public class ValidateReCaptchaAttribute : ActionFilterAttribute
     {

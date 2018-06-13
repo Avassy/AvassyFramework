@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Avassy.AspNetCore.Mvc.ActionFilters.Services
+namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
     internal class ReCaptchaValidationService
     {
