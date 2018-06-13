@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Avassy.AspNetCore.Mvc.ActionFilters.Services
+namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
-    internal class ReCaptchaValidationService
+    public class ReCaptchaValidationService
     {
         private readonly HttpClient _httpClient = new HttpClient();
 
@@ -35,7 +35,7 @@ namespace Avassy.AspNetCore.Mvc.ActionFilters.Services
         }
     }
 
-    internal class ReCaptchaValidationResult
+    public class ReCaptchaValidationResult
     {
         [JsonProperty("success")]
         public bool Success { get; set; }
