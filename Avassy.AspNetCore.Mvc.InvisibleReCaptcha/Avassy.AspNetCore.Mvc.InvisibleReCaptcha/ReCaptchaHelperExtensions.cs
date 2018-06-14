@@ -261,25 +261,32 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
                             switch (self.event) {{
                                 case ""click"": element.click(); break;
                                 case ""focus"": element.focus(); break;
-                                case ""blur"": element.blur(); break;  
-
-                                // This works in MS Edge and google Chrome
-                                //default: element.dispatchEvent(self.eventObject); break;
-        
+                                case ""blur"": element.blur(); break;                               
+                                       
                                 // This works in MS Edge and google Chrome and MS IE11
                                 default: {{                                        
                                     var event;
 
-                                    if(typeof(Event) === ""function"") {{
+                                    var eventConstructorExists = typeof(Event) === ""function"";
+                                    
+                                    if(eventConstructorExists && self.eventObject instanceof Event) {{
                                         event = self.eventObject;
+                                    }} else if(eventConstructorExists) {{
+                                        event = new Event(self.event === ""enter"" ? ""keyup"" : self.event, {{ bubbles: true, cancelable: true }});
                                     }} else {{ 
                                         event = document.createEvent(""Event"");
-                                        event.initEvent(self.event === ""enter"" ? ""keyup"" : self.event, true, true);
-                                        if(self.event === ""enter"") {{ 
-                                            event.keyCode = 13;
-                                            event.which = 13;
-                                        }}
-                                    }} 
+                                        event.initEvent(self.event === ""enter"" ? ""keyup"" : self.event, true, true);                                            
+                                    }}                                        
+
+                                    if(self.event === ""enter"") {{ 
+                                        event.keyCode = 13;
+                                        event.which = 13;
+                                    }}
+
+                                    if(self.event === ""keyup"") {{ 
+                                        event.keyCode = self.eventObject.keyCode;
+                                        event.which = self.eventObject.which;
+                                    }}
 
                                     element.dispatchEvent(event);   
                                 }}; break;
