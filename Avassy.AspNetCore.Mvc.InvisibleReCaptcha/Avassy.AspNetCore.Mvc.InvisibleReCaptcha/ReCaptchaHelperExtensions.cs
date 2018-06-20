@@ -45,6 +45,14 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
                     
                     reCaptchaConfigs: [],
 
+                    insertReCaptchaElementClones: function() {{
+                        // This works in MS Edge and google Chrome
+                        //this.captchaConfigs.forEach(config => {{ if(!config.reCaptchaElementCloneInserted) config.insertElementClone() }})
+
+                        // This works in MS Edge and google Chrome and MS IE11
+                        this.captchaConfigs.forEach(function(config) {{ if(!config.reCaptchaElementCloneInserted) config.insertElementClone() }})  
+                    }},
+
                     initializeReCaptchas: function() {{
                         // This works in MS Edge and google Chrome
                         //this.reCaptchaConfigs.forEach(config => {{ config.initialize() }})
@@ -135,9 +143,80 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
                     useCookie: {useCookie.ToString().ToLower()},
                     isInitialized: false,                        
                     data: {{}},
+                    reCaptchaElementCloneInserted: false,
 
                     get before() {{
                         return {(string.IsNullOrEmpty(beforeReCaptcha) ? "null" : beforeReCaptcha)};
+                    }},
+
+                    get insertElementClone() {{
+                        var self = this;
+
+                        // This works in MS Edge and google Chrome
+                        //return () => {{
+
+                        // This works in MS Edge and google Chrome and MS IE11
+                        return function() {{                                
+    
+                            var element = document.getElementById(self.elementId);                            
+                            var elementClone = element.cloneNode(true);   
+
+                            elementClone.id += ""_RecaptchaClone"";                                                       
+                            elementClone[""on"" + (self.event == ""enter"" ? ""keyup"" : self.event)] = self.eventHandler;
+
+                            element.style.display = ""none"";  
+                                  
+                            // This works in MS Edge and google Chrome
+                            // get the original value and selectedIndex (for <select>)                         
+                            //elementClone.onfocus = () => {{
+                            //    self.data.originalValue = element.value;
+                            //    self.data.originalIndex = element.selectedIndex                                    
+                            //}};
+
+                            // This works in MS Edge and google Chrome and MS IE11
+                            // get the original value and selectedIndex (for <select>)  
+                            elementClone.onfocus = function() {{
+                                self.data.originalValue = element.value;
+                                self.data.originalIndex = element.selectedIndex  
+                            }};                               
+
+                            if(elementClone.nodeName === ""INPUT"" || elementClone.nodeName === ""TEXTAREA"") {{
+
+                                // This works in MS Edge and google Chrome and MS IE11
+                                //elementClone.oninput = (ev) => {{
+                                //    element.value = ev.target.value;
+                                //}};
+
+                                elementClone.oninput = function(ev) {{
+                                    element.value = ev.target.value;
+                                }};
+                            }}
+
+                            // Copy the setters
+                            var elementPrototype = Object.getPrototypeOf(element);
+
+                            Object.getOwnPropertyNames(elementPrototype).forEach(function(propertyName) {{
+
+                                var descriptor = Object.getOwnPropertyDescriptor(elementPrototype, propertyName);
+
+                                if(descriptor) {{
+                                    var originalSet = descriptor.set;
+
+                                    descriptor.set = function(val) {{                                
+                                        elementClone[propertyName] = val;
+
+                                        originalSet.apply(this, arguments);
+                                    }};
+
+                                    try {{ Object.defineProperty(element, propertyName, descriptor); }} catch {{}}                                        
+                                }}
+
+                            }});                             
+                             
+                            element.parentNode.insertBefore(elementClone, element);  
+
+                            self.reCaptchaElementCloneInserted = true;
+                        }}
                     }},
                                      
                     get initialize() {{
@@ -147,31 +226,7 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
                         //return () => {{
 
                         // This works in MS Edge and google Chrome and MS IE11
-                        return function() {{
-                            var element = document.getElementById(self.elementId);                                    
-                            var elementClone = element.cloneNode(true);
-                                                            
-                            elementClone[""on"" + (self.event != ""enter"" ? self.event : ""keyup"")] = self.eventHandler;
-
-                            // This works in MS Edge and google Chrome
-                            // Get the original value and selectedIndex (for <select>)                         
-                            //elementClone.onfocus = () => {{
-                            //    self.data.originalValue = elementClone.value;
-                            //    self.data.originalIndex = elementClone.selectedIndex;                                   
-                            //}}
-
-                            // This works in MS Edge and google Chrome and MS IE11
-                            // Get the original value and selectedIndex (for <select>)  
-                            elementClone.onfocus = function() {{
-                                self.data.originalValue = elementClone.value;
-                                self.data.originalIndex = elementClone.selectedIndex;
-                            }}                                
-                            
-                            element.id += ""_Original"";                               
-                            element.style.display = ""none"";
-
-                            element.parentNode.insertBefore(elementClone, element);
-
+                        return function() {{                            
                             self.widgetId = grecaptcha.render(self.containerId, {{ callback: self.callback, inherit: true }});
 
                             self.isInitialized = true;                                
@@ -240,22 +295,19 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
                                 document.cookie = ""g-recaptcha-response="" + response + ""; expires="" + date.toUTCString() + ""; path=/"";
                             }}
 
-                            var element = document.getElementById(self.elementId + ""_Original"");
-                            var clonedElement = document.getElementById(self.elementId);
-
-                            // Set the ids to the original values so when triggering the even the event.target id is correct
-                            element.id = self.elementId;
-                            clonedElement.id = self.elementId + ""_Cloned"";
-                           
-                            // Set the value to the new value
-                            clonedElement.value = self.data.newValue;
+                            var element = document.getElementById(self.elementId);
+                            var clonedElement = document.getElementById(self.elementId  + ""_RecaptchaClone"");
+                          
+                            // Set the value to the new value                            
                             element.value = self.data.newValue;
+                            clonedElement.value = self.data.newValue;
                             
-                            if(clonedElement.nodeName === ""SELECT"" && element.nodeName === ""SELECT"") {{  
+                            if(clonedElement.nodeName === ""SELECT"") {{  
                                 // Set the selected index to the new index                                   
-                                clonedElement.selectedIndex = self.data.newIndex;
                                 element.selectedIndex = self.data.newIndex;
                                 element.options[element.selectedIndex].selected = true;
+                                clonedElement.selectedIndex = self.data.newIndex;
+                                clonedElement.options[clonedElement.selectedIndex].selected = true; 
                             }}                                                               
 
                             switch (self.event) {{
@@ -290,19 +342,20 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 
                                     element.dispatchEvent(event);   
                                 }}; break;
-                            }}
-
-                            // Reset the ids after the event trigger
-                            element.id = self.elementId + ""_Original"";
-                            clonedElement.id = self.elementId;
+                            }}                           
 
                             grecaptcha.reset(self.widgetId);                           
                         }}
                     }}
                 }});
+
+                window.Avassy.InvisibleReCaptcha.insertReCaptchaElementClones();
+
+                if(window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptAlreadyInPage && window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptLoaded) {{
+                    window.Avassy.InvisibleReCaptcha.initializeReCaptchas();
+                }}
                 
-                if (!window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptAlreadyInPage) {{
-                    window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptAlreadyInPage = true;
+                if (!window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptAlreadyInPage) {{                  
 
                     var reCaptchaScript = document.createElement('script');
                     reCaptchaScript.type = 'text/javascript';
@@ -312,6 +365,8 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 
                     var head = document.getElementsByTagName('head')[0];
                     head.appendChild(reCaptchaScript)
+
+                    window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptAlreadyInPage = true;
 
                     function reCaptchaApiLoaded() {{
                         window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptLoaded = true; 
