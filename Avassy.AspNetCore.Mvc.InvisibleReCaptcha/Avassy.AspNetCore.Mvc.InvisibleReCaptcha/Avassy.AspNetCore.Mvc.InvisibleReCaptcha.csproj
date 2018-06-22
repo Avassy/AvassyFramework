@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.1.1004</Version>
+    <Version>2.1.1.1005</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <NeutralLanguage />
-    <AssemblyVersion>2.1.1.1004</AssemblyVersion>
-    <FileVersion>2.1.1.1004</FileVersion>
+    <AssemblyVersion>2.1.1.1005</AssemblyVersion>
+    <FileVersion>2.1.1.1005</FileVersion>
     <Description>IHtmlHelper extension for Google's invisible reCaptcha.</Description>
     <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
     <PackageProjectUrl></PackageProjectUrl>
