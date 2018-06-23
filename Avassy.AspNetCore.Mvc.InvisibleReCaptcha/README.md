@@ -141,7 +141,4 @@ Example:
 
     </div>
 
-See http://www.avassy.com/framework for more info.
-
-
-See http://www.avassy.com/framework for more info.
+See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha for more info.
