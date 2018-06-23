@@ -1,10 +1,9 @@
-# Avassy.AspNetCore.Mvc.InvisibleReCaptcha
-
 ## Classes
 
 - Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions
 - Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService
 - Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute
+
 
 ## We use an ActionFilterAttribute: ValidateReCaptcha which validates the g-recaptcha-response.
 ##### These are the parameters:
@@ -55,12 +54,12 @@ This MUST be placed inside the form!
 
    The event can be any event you want (ref: https://developer.mozilla.org/en-US/docs/Web/Events). You don't use "on" before the event, so instead of "onclick" you just use "click". There is also an extra event called "enter" to capture an enter key press. For enter to work you will have to add an event listener for the keyup event and check if the event.keyCode equals 13, this is because internally it also uses the keyup event.
 
-- beforeReCaptcha (string, optional, default: null): A javascript function that needs to executed before the captcha is shown. A parameter elementId (the id of the element you triggered the event on) will be passed to the javascript function. This can be a function reference or an actual function (even anonymous functions). The function needs to return true to continue the reCaptcha process. This function is typically used to validate a form before the reCaptcha is shown. But you can execute any logic you want.
+- beforeReCaptcha (string, optional, default: null): A javascript function that needs to executed before the captcha is shown. A parameter elementId (the id of the element you triggered the event on) will be passed to the javascript function. This can be a function reference or an actual function (even lambda functions). The function needs to return true to continue the reCaptcha process. This function is typically used to validate a form before the reCaptcha is shown. But you can execute any logic you want.
 
    Examples:
 
    1. "window.validateForm"
-   2. "(elementId) => { return $('#' + elementId).closest('form').valid(); }" (Note: lambda fucntions don't work in IE11)
+   2. "(elementId) => { return $('#' + elementId).closest('form').valid(); }" *(Note: lambda functions don't work in IE11)*
    3. "function() { return confirm('Are you sure?'); }"
    
    
@@ -106,7 +105,7 @@ This array holds the reCaptcha config objects, the reCaptcha config objects look
 
 ##### Functions:
 
-(*Note: you shouldn't call these functions unless you're absolutely sure you know what you're doing!)
+*(Note: you shouldn't call these functions unless you're absolutely sure you know what you're doing!)*
 
 - insertElementClone (void): Inserts the reCaptcha element clone.
 - initialize (void): Initializes the specified reCaptcha configuration.
@@ -140,5 +139,3 @@ Example:
         </form>
 
     </div>
-
-See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha for more info.
