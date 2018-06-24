@@ -7,7 +7,7 @@
 ## Usage
 
 ### `ValidateReCaptchaAttribute` validates the g-recaptcha-response.
-##### These are the parameters:
+#### These are the parameters:
 
 - secretKey (string, required): The secret key you acquired in the Google developer console.
 
@@ -43,7 +43,7 @@ Example:
 
 ### `ReCaptchaHelperExtensions` renders all the js code and markup related to the reCaptcha challenge.
 
-##### InvisibleReCaptchaFor - these are the parameters:
+#### InvisibleReCaptchaFor - these are the parameters:
 
 - publicKey (string, required): The public key you acquired from the Google developer console.
 
@@ -64,18 +64,18 @@ Example:
    
 - useCookie (boolean, optional, default: false): When true, the g-recaptcha-response will be sent through a cookie (for example when using $.ajax(...) for a POST). When true, you don't have to write any logic to send the g-recaptcha-response to the server, this will work out of the box.
 
-#### Available javascript functions and properties
+##### Available javascript functions and properties
 
 There are some functions and properties you can use in your client-side logic:
 
-##### Properties:
+###### Properties:
 
 - window.Avassy.InvisibleReCaptchasReCaptchaApiScriptAlreadyInPage (boolean): determines if Google's reCaptcha script is already on the page.
 - window.Avassy.InvisibleReCaptcha.isReCaptchaApiScriptLoaded (boolean): determines if Google's reCaptcha script is loaded.
 - window.Avassy.InvisibleReCaptcha.isInitialized (boolean): determines if our custom code is initialized (reCaptchas rendered etc.).
 - window.Avassy.InvisibleReCaptcha.reCaptchaConfigs (array): holds the configurations of the available reCaptchas on the page.
 
-##### Functions:
+###### Functions:
 
 - window.Avassy.InvisibleReCaptcha.insertReCaptchaElementClones() (void): inserts all the reCaptcha element clones.
 - window.Avassy.InvisibleReCaptcha.initializeReCaptchas() (void): initializes all the reCaptchas on the page.
@@ -85,11 +85,11 @@ There are some functions and properties you can use in your client-side logic:
 - window.Avassy.InvisibleReCaptcha.executeReCaptchaForElement(elementId) (void): executes the reCaptcha for a specified element.
 - window.Avassy.InvisibleReCaptcha.getReCaptchaResponseForElement(elementId) (string): gets the reCaptcha response for a specified element.
 
-#### About the reCaptchaConfigs array
+##### About the reCaptchaConfigs array
 
 This array holds the reCaptcha config objects, the reCaptcha config objects look like this:
 
-##### Properties:
+###### Properties:
 
 - containerId (string): The container identifier of the specified reCaptcha configuration.
 - elementId (string): The element identifier of the specified reCaptcha configuration.
@@ -102,7 +102,7 @@ This array holds the reCaptcha config objects, the reCaptcha config objects look
 - before (function): The function that needs to be called before the reCaptcha check.
 - reCaptchaElementCloneInserted (boolean): Determines whether the reCaptcha element clone is inserted.
 
-##### Functions:
+###### Functions:
 
 *(Note: you shouldn't call these functions unless you're absolutely sure you know what you're doing!)*
 
