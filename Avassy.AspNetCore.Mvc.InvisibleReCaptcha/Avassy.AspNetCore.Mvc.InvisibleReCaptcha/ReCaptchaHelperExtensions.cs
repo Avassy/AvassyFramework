@@ -47,10 +47,10 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 
                     insertReCaptchaElementClones: function() {{
                         // This works in MS Edge and google Chrome
-                        //this.captchaConfigs.forEach(config => {{ if(!config.reCaptchaElementCloneInserted) config.insertElementClone() }})
+                        //this.reCaptchaConfigs.forEach(config => {{ if(!config.reCaptchaElementCloneInserted) config.insertElementClone() }})
 
                         // This works in MS Edge and google Chrome and MS IE11
-                        this.captchaConfigs.forEach(function(config) {{ if(!config.reCaptchaElementCloneInserted) config.insertElementClone() }})  
+                        this.reCaptchaConfigs.forEach(function(config) {{ if(!config.reCaptchaElementCloneInserted) config.insertElementClone() }})  
                     }},
 
                     initializeReCaptchas: function() {{
