@@ -1,3 +1,13 @@
-# AvassyFramework
+# Avassy.AspNetCore.Mvc.Extensions
 
-See http://www.avassy.com/framework for more info.
+See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions for more info.
+
+## Classes
+
+- `Avassy.AspNetCore.Mvc.Extensions.HtmlStringExtensions`
+
+## Usage
+
+### `HtmlStringExtensions.ToEscapedJSHtmlString` escapes a string with HTML content
+
+This is useful for rendering HTML strings on you page without have to worry about XSS. 
