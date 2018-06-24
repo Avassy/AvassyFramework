@@ -1,12 +1,8 @@
-# Avassy.AspNetCore.Mvc.ActionFilters
-
-See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.ActionFilters for more info.
-
 ## Classes
 
-- Avassy.AspNetCore.Mvc.ActionFilters.ExcludeUserAgentsAttribute 
+`Avassy.AspNetCore.Mvc.ActionFilters.ExcludeUserAgentsAttribute`
 
-### ExcludeUserAgents excludes specified user agents (UA) by UA string.
+### `ExcludeUserAgentsAttribute` excludes specified user agents (UA) by UA string.
 ##### These are the parameters:
 
 - userAgent (string, required): The UA string you want to exclude.
