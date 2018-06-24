@@ -7,7 +7,7 @@
 ## Usage
 
 ### `ValidateReCaptchaAttribute` validates the g-recaptcha-response.
-#### These are the parameters:
+#### Parameters:
 
 - secretKey (string, required): The secret key you acquired in the Google developer console.
 
@@ -43,7 +43,7 @@ Example:
 
 ### `ReCaptchaHelperExtensions` renders all the js code and markup related to the reCaptcha challenge.
 
-#### InvisibleReCaptchaFor - these are the parameters:
+#### InvisibleReCaptchaFor parameters:
 
 - publicKey (string, required): The public key you acquired from the Google developer console.
 
