@@ -1,3 +1,7 @@
+# Avassy.AspNetCore.Mvc.InvisibleRecaptcha
+
+See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleRecaptcha for more info.
+
 ## Classes
 
 - `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions`
