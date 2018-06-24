@@ -12,7 +12,7 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 
 This is useful for rendering HTML strings on you page without having to worry about XSS. 
 
-Example
+Example:
 
     <script type="text/javascript">
         $(function() {
