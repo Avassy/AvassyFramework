@@ -8,7 +8,9 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 
 ## Usage
 
-#### `ToEscapedJSHtmlString` escapes a `HtmlString`
+### `HtmlStringExtensions` has some handy extension methods.
+
+#### `ToEscapedJSHtmlString` escapes a `HtmlString`.
 
 This is useful for rendering HTML strings on you page without having to worry about XSS. 
 
