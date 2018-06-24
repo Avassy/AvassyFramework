@@ -20,7 +20,6 @@ Example:
                 var jsonSerializerSettings = new JsonSerializerSettings {ContractResolver = new CamelCasePropertyNamesContractResolver()};
 
                 var serverViewModel = new HtmlString(JsonConvert.SerializeObject(this.Model, Formatting.None, jsonSerializerSettings)).ToEscapedJSHtmlString();
-
             }
 
             document.viewModel = new Avassy.Framework.FrameworkViewModel(@serverViewModel);
