@@ -1,8 +1,8 @@
 ## Classes
 
-`Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions`
-`Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService`
-`Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute`
+- `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions`
+- `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService`
+- `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute`
 
 
 ### `ValidateReCaptchaAttribute` validates the g-recaptcha-response.
