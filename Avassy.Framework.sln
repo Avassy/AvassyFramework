@@ -3,7 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.ActionFilters", "Avassy.AspNetCore.Mvc.ActionFilters\Avassy.AspNetCore.Mvc.ActionFilters\Avassy.AspNetCore.Mvc.ActionFilters.csproj", "{9E6D2623-9891-4E6C-9575-B445FA026465}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.Extensions", "Avassy.AspNetCore.Mvc.Extensions\Avassy.AspNetCore.Mvc.Extensions\Avassy.AspNetCore.Mvc.Extensions.csproj", "{42F6E77B-A730-4F67-8782-5F6FE3926229}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.InvisibleReCaptcha", "Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha.csproj", "{7A013F2E-D176-496F-BB51-7A7CBD819700}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.TagHelpers", "Avassy.AspNetCore.Mvc.TagHelpers\Avassy.AspNetCore.Mvc.TagHelpers\Avassy.AspNetCore.Mvc.TagHelpers.csproj", "{FAA880DF-1028-4990-9F49-9D6674E2515E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.NetCore.Global.Extensions", "Avassy.NetCore.Global.Extensions\Avassy.NetCore.Global.Extensions\Avassy.NetCore.Global.Extensions.csproj", "{3F21370B-EF42-4F92-A7F0-F5F5328D46EF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E6D2623-9891-4E6C-9575-B445FA026465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6D2623-9891-4E6C-9575-B445FA026465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6D2623-9891-4E6C-9575-B445FA026465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6D2623-9891-4E6C-9575-B445FA026465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F6E77B-A730-4F67-8782-5F6FE3926229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F6E77B-A730-4F67-8782-5F6FE3926229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F6E77B-A730-4F67-8782-5F6FE3926229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F6E77B-A730-4F67-8782-5F6FE3926229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A013F2E-D176-496F-BB51-7A7CBD819700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A013F2E-D176-496F-BB51-7A7CBD819700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A013F2E-D176-496F-BB51-7A7CBD819700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A013F2E-D176-496F-BB51-7A7CBD819700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA880DF-1028-4990-9F49-9D6674E2515E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA880DF-1028-4990-9F49-9D6674E2515E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA880DF-1028-4990-9F49-9D6674E2515E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA880DF-1028-4990-9F49-9D6674E2515E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F21370B-EF42-4F92-A7F0-F5F5328D46EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F21370B-EF42-4F92-A7F0-F5F5328D46EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F21370B-EF42-4F92-A7F0-F5F5328D46EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F21370B-EF42-4F92-A7F0-F5F5328D46EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
