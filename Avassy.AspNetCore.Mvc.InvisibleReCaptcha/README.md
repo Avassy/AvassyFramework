@@ -1,11 +1,11 @@
 ## Classes
 
-- Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions
-- Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService
-- Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute
+`Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions`
+`Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService`
+`Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute`
 
 
-### ValidateReCaptcha validates the g-recaptcha-response.
+### `ValidateReCaptchaAttribute` validates the g-recaptcha-response.
 ##### These are the parameters:
 
 - secretKey (string, required): The secret key you acquired in the Google developer console.
@@ -40,7 +40,7 @@ Example:
         }
     }
 
-### ReCaptchaHelperExtensions.InvisibleReCaptchaFor renders all the js code and markup related to the reCaptcha challenge.
+### `ReCaptchaHelperExtensions.InvisibleReCaptchaFor` renders all the js code and markup related to the reCaptcha challenge.
 ##### These are the parameters:
 
 - publicKey (string, required): The public key you acquired from the Google developer console.
