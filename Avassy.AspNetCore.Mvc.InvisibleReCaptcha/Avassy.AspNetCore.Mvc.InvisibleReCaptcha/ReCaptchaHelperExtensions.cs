@@ -208,7 +208,7 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
                                         originalSet.apply(this, arguments);
                                     }};
 
-                                    try {{ Object.defineProperty(element, propertyName, descriptor); }} catch {{}}                                        
+                                    try {{ Object.defineProperty(element, propertyName, descriptor); }} catch (ex) {{}}                                        
                                 }}
 
                             }});                             
