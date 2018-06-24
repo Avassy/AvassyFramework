@@ -5,7 +5,7 @@
 - Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute
 
 
-## We use an ActionFilterAttribute: ValidateReCaptcha which validates the g-recaptcha-response.
+### ValidateReCaptcha validates the g-recaptcha-response.
 ##### These are the parameters:
 
 - secretKey (string, required): The secret key you acquired in the Google developer console.
@@ -40,10 +40,7 @@ Example:
         }
     }
 
-## We use an IHtmlHelper extension: InvisibleReCaptchaFor which renders all the js code and markup related to the reCaptcha challenge.
-
-This MUST be placed inside the form!
-
+### ReCaptchaHelperExtensions.InvisibleReCaptchaFor renders all the js code and markup related to the reCaptcha challenge.
 ##### These are the parameters:
 
 - publicKey (string, required): The public key you acquired from the Google developer console.
@@ -65,7 +62,7 @@ This MUST be placed inside the form!
    
 - useCookie (boolean, optional, default: false): When true, the g-recaptcha-response will be sent through a cookie (for example when using $.ajax(...) for a POST). When true, you don't have to write any logic to send the g-recaptcha-response to the server, this will work out of the box.
 
-### Available javascript functions and properties
+#### Available javascript functions and properties
 
 There are some functions and properties you can use in your client-side logic:
 
@@ -86,7 +83,7 @@ There are some functions and properties you can use in your client-side logic:
 - window.Avassy.InvisibleReCaptcha.executeReCaptchaForElement(elementId) (void): executes the reCaptcha for a specified element.
 - window.Avassy.InvisibleReCaptcha.getReCaptchaResponseForElement(elementId) (string): gets the reCaptcha response for a specified element.
 
-### About the reCaptchaConfigs array
+#### About the reCaptchaConfigs array
 
 This array holds the reCaptcha config objects, the reCaptcha config objects look like this:
 
@@ -120,7 +117,6 @@ Example:
                 <input asp-for="EmailAddress" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Your email address. *">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email address with anyone else.</small>
                 <span asp-validation-for="EmailAddress" class="text-danger"></span>
-
             </div>
             <div class="form-group">
                 <input asp-for="Subject" type="text" class="form-control" placeholder="What is this about?">
@@ -128,7 +124,6 @@ Example:
             <div class="form-group">
                 <textarea asp-for="Message" class="form-control" rows="10" placeholder="Your question. *"></textarea>
                 <span asp-validation-for="Message" class="text-danger"></span>
-
             </div>
             <div class="form-group">
                 <small class="form-text text-muted">* Required fields.</small>
@@ -137,5 +132,4 @@ Example:
 
             @this.Html.InvisibleReCaptchaFor("xxxx", "btnSubmit", "click", "function(elementId) { return $('#' + elementId).closest('form').valid(); }")
         </form>
-
     </div>
