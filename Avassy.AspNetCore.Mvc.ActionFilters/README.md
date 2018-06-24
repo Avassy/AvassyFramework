@@ -5,7 +5,8 @@
 ## Usage
 
 ### `ExcludeUserAgentsAttribute` excludes specified user agents (UA) by UA string.
-##### These are the parameters:
+
+#### Parameters:
 
 - userAgent (string, required): The UA string you want to exclude.
 - redirectAction (string, required): The action of the controller you want to redirect to if the UA is excluded.
