@@ -4,6 +4,7 @@
 - `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService`
 - `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute`
 
+## Usage
 
 ### `ValidateReCaptchaAttribute` validates the g-recaptcha-response.
 ##### These are the parameters:
