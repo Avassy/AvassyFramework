@@ -41,7 +41,10 @@ Example:
         }
     }
 
-### `ReCaptchaHelperExtensions.InvisibleReCaptchaFor` renders all the js code and markup related to the reCaptcha challenge.
+### `ReCaptchaHelperExtensions` renders all the js code and markup related to the reCaptcha challenge.
+
+#### Method InvisibleReCaptchaFor
+
 ##### These are the parameters:
 
 - publicKey (string, required): The public key you acquired from the Google developer console.
