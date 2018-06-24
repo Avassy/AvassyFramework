@@ -1,3 +1,7 @@
+# Avassy.AspNetCore.Mvc.ActionFilters
+
+See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.ActionFilters for more info.
+
 ## Classes
 
 - `Avassy.AspNetCore.Mvc.ActionFilters.ExcludeUserAgentsAttribute`
