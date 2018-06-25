@@ -36,7 +36,7 @@ List<string> list = new List<string>();
 Collection<string> collection = list.ToCollection();
 ```
 
-### `EnumerableExtensions`
+### `StringExtensions`
 
 #### `RemoveSpecialCharactersAndSpaces` removes all special characters and spaces in a string.
 
@@ -50,4 +50,5 @@ var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
 // Output: "hello-user"
 ```
 
-This is usefull to create an nicely formatted URL
+This is usefull to create an nicely formatted URL.
+
