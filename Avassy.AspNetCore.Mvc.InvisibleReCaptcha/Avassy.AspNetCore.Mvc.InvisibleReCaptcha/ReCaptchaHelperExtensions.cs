@@ -7,6 +7,7 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
     public static class ReCaptchaHelperExtensions
     {
+        [Obsolete("Use the asp-invisible-recaptcha tag helper, see http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha/docs for documentation.")]
         public static HtmlString InvisibleReCaptchaFor(this IHtmlHelper htmlHelper, string publicKey, string elementId,
             string @event = "click", string beforeReCaptcha = null, bool useCookie = false)
         {
