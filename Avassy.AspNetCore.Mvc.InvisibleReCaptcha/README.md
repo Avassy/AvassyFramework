@@ -6,6 +6,8 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleRe
 
 - `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaHelperExtensions`
 - `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaValidationService`
+- `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaBuilder`
+- `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaTagHelpers`
 - `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ValidateReCaptchaAttribute`
 
 ## Usage
@@ -45,7 +47,9 @@ Example:
         }
     }
 
-### `ReCaptchaHelperExtensions` renders all the js code and markup related to the reCaptcha challenge.
+### `ReCaptchaBuilder` renders all the js code and markup related to the reCaptcha challenge.
+
+### `ReCaptchaHelperExtensions` provides a IHtmlHelperExtension *(OBSOLETE, see `ReCaptchaTagHelpers`)*.
 
 #### InvisibleReCaptchaFor parameters:
 
@@ -67,6 +71,87 @@ Example:
    
    
 - useCookie (boolean, optional, default: false): When true, the g-recaptcha-response will be sent through a cookie (for example when using $.ajax(...) for a POST). When true, you don't have to write any logic to send the g-recaptcha-response to the server, this will work out of the box.
+
+Example:
+
+    <div class="container contact-us-container">
+        <form asp-controller="ContactUs" asp-action="Index" method="post">
+            <div class="form-group">
+                <input asp-for="EmailAddress" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Your email address. *">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email address with anyone else.</small>
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Subject" type="text" class="form-control" placeholder="What is this about?">
+            </div>
+            <div class="form-group">
+                <textarea asp-for="Message" class="form-control" rows="10" placeholder="Your question. *"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <small class="form-text text-muted">* Required fields.</small>
+            </div>
+            <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+
+            @this.Html.InvisibleReCaptchaFor("xxxx", "btnSubmit", "click", "function(elementId) { return $('#' + elementId).closest('form').valid(); }")
+        </form>
+    </div>
+
+
+### `ReCaptchaTagHelpers` provides a tag helper for the invisible reCaptcha.
+
+#### Parameters:
+
+- id (string, required): The element id.
+
+- data-recaptcha-key (string, required): The public key you acquired from the Google developer console.
+
+- data-recaptcha-event (string, optional, default: click): The event you want to trigger the reCaptcha for. (Note: the parameter is called "@event" because "event" is a reserved keyword in C#).
+
+   The event can be any event you want (ref: https://developer.mozilla.org/en-US/docs/Web/Events). You don't use "on" before the event, so instead of "onclick" you just use "click". There is also an extra event called "enter" to capture an enter key press. For enter to work you will have to add an event listener for the keyup event and check if the event.keyCode equals 13, this is because internally it also uses the keyup event.
+
+- data-recaptcha-before (string, optional, default: null): A javascript function that needs to executed before the captcha is shown. A parameter elementId (the id of the element you triggered the event on) will be passed to the javascript function. This can be a function reference or an actual function (even lambda functions). The function needs to return true to continue the reCaptcha process. This function is typically used to validate a form before the reCaptcha is shown. But you can execute any logic you want.
+
+   Examples:
+
+   1. "window.validateForm"
+   2. "(elementId) => { return $('#' + elementId).closest('form').valid(); }" *(Note: lambda functions don't work in IE11)*
+   3. "function() { return confirm('Are you sure?'); }"
+    
+- data-recaptcha-cookie (boolean, optional, default: false): When true, the g-recaptcha-response will be sent through a cookie (for example when using $.ajax(...) for a POST). When true, you don't have to write any logic to send the g-recaptcha-response to the server, this will work out of the box.
+
+#### Usage:
+
+Add the `Avassy.AspNetCore.Mvc.InvisibleReCaptcha.ReCaptchaTagHelpers` to your `_ViewImports.cshtml` file:
+
+    @addTagHelper *, Avassy.AspNetCore.Mvc.InvisibleReCaptcha
+
+Add the  `asp-invisible-recaptcha`attribute and corresponding `data-` attributes to your control:
+
+    <button id="btnSubmit" type="submit" class="btn btn-primary" asp-invisible-recaptcha data-recaptcha-key="xxxx" data-recaptcha-event="click" data-recaptcha-before="function(elementId) { return $('#' + elementId).closest('form').valid(); }" data-recaptcha-cookie="true">Submit</button>
+
+Example:
+
+    <div class="container contact-us-container">
+        <form asp-controller="ContactUs" asp-action="Index" method="post">
+            <div class="form-group">
+                <input asp-for="EmailAddress" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Your email address. *">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email address with anyone else.</small>
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Subject" type="text" class="form-control" placeholder="What is this about?">
+            </div>
+            <div class="form-group">
+                <textarea asp-for="Message" class="form-control" rows="10" placeholder="Your question. *"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <small class="form-text text-muted">* Required fields.</small>
+            </div>
+            <button id="btnSubmit" type="submit" class="btn btn-primary" asp-invisible-recaptcha data-recaptcha-key="xxxx" data-recaptcha-event="click" data-recaptcha-before="function(elementId) { return $('#' + elementId).closest('form').valid(); }" data-recaptcha-cookie="true">Submit</button>        
+        </form>
+    </div>
 
 ##### Available javascript functions and properties
 
@@ -115,27 +200,3 @@ This array holds the reCaptcha config objects, the reCaptcha config objects look
 - eventHandler (void): The event handler for the specified reCaptcha configuration.
 - callback (void): The callback for the specified reCaptcha configuration.
 
-Example:
-
-    <div class="container contact-us-container">
-        <form asp-controller="ContactUs" asp-action="Index" method="post">
-            <div class="form-group">
-                <input asp-for="EmailAddress" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Your email address. *">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email address with anyone else.</small>
-                <span asp-validation-for="EmailAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Subject" type="text" class="form-control" placeholder="What is this about?">
-            </div>
-            <div class="form-group">
-                <textarea asp-for="Message" class="form-control" rows="10" placeholder="Your question. *"></textarea>
-                <span asp-validation-for="Message" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <small class="form-text text-muted">* Required fields.</small>
-            </div>
-            <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
-
-            @this.Html.InvisibleReCaptchaFor("xxxx", "btnSubmit", "click", "function(elementId) { return $('#' + elementId).closest('form').valid(); }")
-        </form>
-    </div>
