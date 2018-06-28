@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
+    /// <summary>
+    /// The class that holds a IHtmlHelper extension to create the reCaptcha markup.
+    /// </summary>
     public static class ReCaptchaHelperExtensions
     {
         [Obsolete("Use the asp-invisible-recaptcha tag helper, see http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha/docs for documentation.")]

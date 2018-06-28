@@ -1,36 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Avassy.NetCore.Global.Extensions
 {
+    /// <summary>
+    /// This class IEnumerable extension methods.
+    /// </summary>
     public static class EnumerableExtensions
     {
-        public static ICollection<T> ToCollection<T>(this IEnumerable<T> source)
+        /// <summary>
+        /// Converts an IEnumerable to a ICollection.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sourceItems">The source items.</param>
+        /// <returns>An ICollection of items.</returns>
+        public static ICollection<T> ToCollection<T>(this IEnumerable<T> sourceItems)
         {
-            if (source == null)
+            if (sourceItems == null)
             {
                 return null;
             }
 
-            var arr = source.ToArray();
+            var arr = sourceItems.ToArray();
 
             return new Collection<T>(arr);
         }
 
-        public static IEnumerable<T> AddRange<T>(this IEnumerable<T> sourceArr, IEnumerable<T> arrToAdd)
+        /// <summary>
+        /// Adds a range of items to an IEnumerable.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="soureceItems">The source items.</param>
+        /// <param name="itemsToAdd">The items to add.</param>
+        /// <returns>The original IEnumerable with the new items added.</returns>
+        public static IEnumerable<T> AddRange<T>(this IEnumerable<T> soureceItems, IEnumerable<T> itemsToAdd)
         {
-            if (arrToAdd == null)
+            if (itemsToAdd == null)
             {
-                return sourceArr;
+                return soureceItems;
             }
 
-            var enumerable = sourceArr as T[] ?? sourceArr.ToArray();
+            var enumerable = soureceItems as T[] ?? soureceItems.ToArray();
 
             var newList = enumerable.ToList();
 
-            foreach (var obj in arrToAdd)
+            foreach (var obj in itemsToAdd)
             {
                 newList.Add(obj);
             }
