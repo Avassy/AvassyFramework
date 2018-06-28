@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.0.1000</Version>
+    <Version>2.1.0.1001</Version>
     <Description>Some extension methods for Asp.Net Core 2.1.</Description>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
