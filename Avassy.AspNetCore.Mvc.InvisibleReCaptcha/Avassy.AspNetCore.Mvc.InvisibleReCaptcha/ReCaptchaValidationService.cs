@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
+    /// <summary>
+    /// The validation service class for the reCaptcha response.
+    /// </summary>
     public class ReCaptchaValidationService
     {
         private readonly HttpClient _httpClient = new HttpClient();
@@ -14,12 +17,21 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 
         private readonly string _secretKey;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReCaptchaValidationService"/> class.
+        /// </summary>
+        /// <param name="secretKey">The secret key you acquired in the Google developer console.</param>
         public ReCaptchaValidationService(string secretKey)
         {
             this._secretKey = secretKey;
             this._url = "https://www.google.com/recaptcha/api/siteverify";
         }
 
+        /// <summary>
+        /// Validates the specified reCaptcha response.
+        /// </summary>
+        /// <param name="reCaptchaResponse">The reCaptcha response.</param>
+        /// <returns></returns>
         public async Task<ReCaptchaValidationResult> Validate(string reCaptchaResponse)
         {
             var content = new FormUrlEncodedContent(
@@ -35,6 +47,9 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
         }
     }
 
+    /// <summary>
+    /// The reCaptcha validation result class.
+    /// </summary>
     public class ReCaptchaValidationResult
     {
         [JsonProperty("success")]
