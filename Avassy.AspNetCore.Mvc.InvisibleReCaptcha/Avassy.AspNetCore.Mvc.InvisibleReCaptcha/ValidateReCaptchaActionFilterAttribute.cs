@@ -3,6 +3,11 @@ using System.Linq;
 
 namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// The ActionFilter attribute class that validates the reCaptcha response.
+    /// </summary>
+    /// <seealso cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
     public class ValidateReCaptchaAttribute : ActionFilterAttribute
     {
         private readonly string _recaptchaResponseKey = "g-recaptcha-response";
@@ -11,13 +16,20 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
         private readonly string _reCaptchaResponseNotPresentValidationMessage;
         private readonly string _reCaptchaResponseInvalidValidationMessage;
 
-        public ValidateReCaptchaAttribute(string secretKey, string reCaptchaResponseNotPresentValidationMessage = "The ReCaptcha response was not present.", string reCaptchaResponseInvalidValidationMessage = "The ReCaptcha response was not valid.")
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidateReCaptchaAttribute"/> class.
+        /// </summary>
+        /// <param name="secretKey">The secret key you acquired in the Google developer console.</param>
+        /// <param name="reCaptchaResponseNotPresentValidationMessage">The reeCaptcha response was not present validation message.</param>
+        /// <param name="reCaptchaResponseInvalidValidationMessage">The reCaptcha response was invalid validation message.</param>
+        public ValidateReCaptchaAttribute(string secretKey, string reCaptchaResponseNotPresentValidationMessage = "The reCaptcha response was not present.", string reCaptchaResponseInvalidValidationMessage = "The reCaptcha response was not valid.")
         {
             this._secretKey = secretKey;
             this._reCaptchaResponseNotPresentValidationMessage = reCaptchaResponseNotPresentValidationMessage;
             this._reCaptchaResponseInvalidValidationMessage = reCaptchaResponseInvalidValidationMessage;
         }
 
+        /// <inheritdoc />
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var captchaResponse =

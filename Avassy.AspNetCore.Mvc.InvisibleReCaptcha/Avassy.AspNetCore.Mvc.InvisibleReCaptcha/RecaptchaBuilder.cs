@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 {
+    /// <summary>
+    /// The builder class for the reCaptcha HTML.
+    /// </summary>
     public class ReCaptchaBuilder
     {
         private readonly string _publicKey, _elementId, _event, _beforeReCaptcha;
         private readonly bool _useCookie;
         private readonly Guid _containerId = Guid.NewGuid();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReCaptchaBuilder"/> class.
+        /// </summary>
+        /// <param name="publicKey">The public key.</param>
+        /// <param name="elementId">The element identifier.</param>
+        /// <param name="event">The event.</param>
+        /// <param name="beforeReCaptcha">The method that needs to be executed before the reCaptcha.</param>
+        /// <param name="useCookie">if set to <c>true</c> [use cookie].</param>
         public ReCaptchaBuilder(string publicKey, string elementId, string @event = "click", string beforeReCaptcha = null, bool useCookie = false)
         {
             this._publicKey = publicKey;
@@ -19,11 +28,19 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
             this._useCookie = useCookie;
         }
 
+        /// <summary>
+        /// Builds the reCaptcha container HTML.
+        /// </summary>
+        /// <returns></returns>
         public string BuildReCaptchaContainerHtml()
         {
             return $"<div class=\"g-recaptcha\" id=\"{this._containerId}\" data-sitekey=\"{this._publicKey}\" data-size=\"invisible\"></div>";
         }
 
+        /// <summary>
+        /// Builds the reCaptcha script.
+        /// </summary>
+        /// <returns></returns>
         public string BuildReCaptchaScript()
         {
             var script =
@@ -369,6 +386,10 @@ namespace Avassy.AspNetCore.Mvc.InvisibleReCaptcha
             return script;
         }
 
+        /// <summary>
+        /// Gets the before reCaptcha context.
+        /// </summary>
+        /// <returns></returns>
         private string GetBeforeReCaptchaContext()
         {
             if (string.IsNullOrEmpty(this._beforeReCaptcha))

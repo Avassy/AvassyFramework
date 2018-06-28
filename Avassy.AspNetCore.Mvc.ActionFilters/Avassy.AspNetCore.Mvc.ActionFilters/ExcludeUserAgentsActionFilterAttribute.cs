@@ -4,12 +4,24 @@ using System;
 
 namespace Avassy.AspNetCore.Mvc.ActionFilters
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// An ActionFilter attribute that lets you redirect when a certain UA is specified.
+    /// </summary>
+    /// <seealso cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
     public class ExcludeUserAgentsAttribute : ActionFilterAttribute
     {
         private readonly string _userAgent;
         private readonly string _redirectAction;
         private readonly string _redirectController;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcludeUserAgentsAttribute"/> class.
+        /// </summary>
+        /// <param name="userAgent">The user agent.</param>
+        /// <param name="redirectAction">The redirect action you want to redirect to when the UA is excluded.</param>
+        /// <param name="redirectController">The redirect controller you want to redirect to when the UA is excluded.</param>
+        /// <exception cref="ArgumentException">The 'userAgent', 'redirectAction' and 'redirectController' parameters cannot be null or empty.</exception>
         public ExcludeUserAgentsAttribute(string userAgent, string redirectAction, string redirectController)
         {
             if (string.IsNullOrEmpty(userAgent) || string.IsNullOrEmpty(redirectAction) || string.IsNullOrEmpty(redirectController))
@@ -21,7 +33,8 @@ namespace Avassy.AspNetCore.Mvc.ActionFilters
             this._redirectAction = redirectAction;
             this._redirectController = redirectController;
         }
-
+        
+        /// <inheritdoc />
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var userAgent = context.HttpContext.Request.Headers["User-Agent"].ToString();
