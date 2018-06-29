@@ -1,0 +1,230 @@
+﻿@using Avassy.AspNetCore.Mvc.InvisibleReCaptcha
+
+@model Avassy.Framework.Demo.ViewModels.InvisibleReCaptchaViewModel
+
+
+@{
+    this.ViewBag.Title = "Invisible reCaptcha";
+    this.ViewBag.ActivePage = "InvisibleReCaptcha";
+
+    var _siteKey = "6LfCq1gUAAAAAHcL4LCOFR2H-9i8O6issyWvN6IZ";
+}
+
+<h1 class="h1">Invisible reCaptcha</h1>
+<hr class="my-2" />
+
+<p>See the reCaptcha docs on <a href="https://developers.google.com/recaptcha/docs/invisible">Google developers</a>.</p>
+<p>See the docs for this example on *link*.</p>
+
+<hr />
+<h4>Regular form POST with validation before reCaptcha on submit button element with g-recaptcha-response in form data with IHtmlHelper extension</h4>
+<hr />
+
+<form asp-controller="" asp-action="" method="post" role="form" id="postForm">
+    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+    <div class="form-group row">
+        <label asp-for="PostPerson.FirstName" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="PostPerson.FirstName" class="form-control" />
+            <span asp-validation-for="PostPerson.FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="PostPerson.LastName" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="PostPerson.LastName" class="form-control" />
+            <span asp-validation-for="PostPerson.LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="PostPerson.EmailAddress" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="PostPerson.EmailAddress" class="form-control" />
+            <span asp-validation-for="PostPerson.EmailAddress" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <span class="text-success">@this.ViewData["PostSuccessMessage"]</span>
+        <span class="text-danger">@this.ViewData["PostErrorMessage"]</span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" id="addPersonPostBtn" class="btn btn-primary" style="min-width: 150px;">add</button>
+        <button type="button" id="clearPersonPostBtn" class="btn btn-secondary" style="min-width: 150px;">clear</button>
+    </div>
+
+    @this.Html.InvisibleReCaptchaFor(_siteKey, "addPersonPostBtn", null, "validatePostForm")
+</form>
+
+<script type="text/javascript">
+    $("#clearPersonPostBtn").click(() => { clearPostForm(); });
+
+    function validatePostForm() {
+        return $("#postForm").valid();
+    }
+
+    function clearPostForm() {
+        $("#postForm").trigger("reset");
+        $("#postForm").valid();
+    }
+</script>
+
+
+<hr />
+<h4>AJAX POST with validation before reCaptcha on link element with g-recapcha-response in request header with IHtmlHelper extension</h4>
+<hr />
+
+<form id="ajaxForm">
+    <div class="form-group row">
+        <label asp-for="AjaxPerson.FirstName" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="AjaxPerson.FirstName" class="form-control" id="ajaxPersonFirstName" />
+            <span asp-validation-for="AjaxPerson.FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="AjaxPerson.LastName" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="AjaxPerson.LastName" class="form-control" id="ajaxPersonLastName" />
+            <span asp-validation-for="AjaxPerson.LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="AjaxPerson.EmailAddress" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="AjaxPerson.EmailAddress" class="form-control" id="ajaxPersonEmailAddress" />
+            <span asp-validation-for="AjaxPerson.EmailAddress" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a href="#" id="addPersonAjaxLink" class="btn btn-primary" style="min-width: 150px;">add</a>
+        <a href="#" id="clearPersonAjaxLink" class="btn btn-secondary" style="min-width: 150px;">clear</a>
+    </div>
+
+    @this.Html.InvisibleReCaptchaFor(_siteKey, "addPersonAjaxLink", null, "(elementId) => { return $('#' + elementId).closest('form').valid(); }", true)
+</form>
+
+<script type="text/javascript">
+    $("#addPersonAjaxLink").click((ev) => { submitAjaxForm(ev); });
+    $("#clearPersonAjaxLink").click(() => { clearAjaxForm(); });
+
+    function validateAjaxForm() {
+        return $("#ajaxForm").valid();
+    }
+
+    function clearAjaxForm() {
+        $("#ajaxForm").trigger("reset");
+        $("#ajaxForm").valid();
+    }
+
+    function submitAjaxForm(ev) {
+
+        // get the ReCaptcha data and do something with it (ex. add the ReCaptcha response to the body)
+        var elementId = ev.currentTarget.id;
+
+        var reCaptchaWidgetId = window.brechtbaekelandt.reCaptcha.getReCaptchaWidgetIdForElement(elementId);
+        var reCaptchaContainerId = window.brechtbaekelandt.reCaptcha.getReCaptchaContainerIdForElement(elementId);
+        var reCaptchaResponse = window.brechtbaekelandt.reCaptcha.getReCaptchaResponseForElement(elementId);
+
+        console.log("ReCaptcha widget id: " + reCaptchaWidgetId);
+        console.log("ReCaptcha container id: " + reCaptchaContainerId);
+        console.log("ReCaptcha response: " + reCaptchaResponse);
+
+        var ajaxPersonFirstName = $("#ajaxPersonFirstName").val();
+        var ajaxPersonLastName = $("#ajaxPersonLastName").val();
+        var ajaxPersonEmailAddress = $("#ajaxPersonEmailAddress").val();
+
+        var ajaxPerson = {
+            firstName: ajaxPersonFirstName,
+            lastName: ajaxPersonLastName,
+            emailAddress: ajaxPersonEmailAddress
+        };
+
+        $.ajax({
+            url: "/invisible-recaptcha/ajaxpost",
+            type: "POST",
+            contentType: "application/json; charset=UTF-8",
+            headers: {
+                "g-recaptcha-response": reCaptchaResponse
+            },
+            data: JSON.stringify(ajaxPerson),
+            dataType: "json",
+            cache: false,
+            processData: false,
+            async: false,
+            success: function (data, textStatus, jqXhr) { }
+        })
+            .done(function (data, textStatus, jqXhr) {
+                alert(data.message);
+            })
+            .fail(function (jqXhr, textStatus, errorThrown) {
+                alert(jqXhr.responseJSON ? jqXhr.responseJSON.message ? jqXhr.responseJSON.message : errorThrown : errorThrown);
+            })
+            .always(function (data, textStatus, jqXhr) {
+
+            });
+    }
+</script>
+
+<hr />
+<h4>AJAX POST with confirm before reCaptcha on select element with g-recaptcha-response in cookie with TagHelper</h4>
+<hr />
+
+<form id="ajaxForm2">
+    <div class="form-group">
+        <select id="addPersonAjaxSelect" class="form-control" asp-invisible-recaptcha data-recaptcha-key="@_siteKey" data-recaptcha-event="change" data-recaptcha-before="() => confirm('Are you sure you want to change the person?')" data-recaptcha-cookie="true">
+            <option data-ignore="true">--Select a person--</option>
+            <option data-first-name="Bill" data-last-name="Gates" data-email-address="bill.gates@microsoft.com">Bill Gates</option>
+            <option data-first-name="Satya" data-last-name="Nadella" data-email-address="satya.nadella@microsoft.com">Satya Nadella</option>
+            <option data-first-name="Scott" data-last-name="Hanselman" data-email-address="scott.hanselman@microsoft.com">Scott Hanselman</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <i>*note: the value will not change untill after the reCaptcha is completed.</i>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $("#addPersonAjaxSelect").change((ev) => { submitAjaxForm2(ev); });
+
+    function submitAjaxForm2(ev) {
+        var $elementId = "#" + ev.target.id;
+
+        var ignore = $($elementId).find(":selected").data("ignore");
+
+        if (!ignore) {
+            var ajaxPersonFirstName = $($elementId).find(":selected").data("first-name");
+            var ajaxPersonLastName = $($elementId).find(":selected").data("last-name");
+            var ajaxPersonEmailAddress = $($elementId).find(":selected").data("email-address");
+
+            var ajaxPerson = {
+                firstName: ajaxPersonFirstName,
+                lastName: ajaxPersonLastName,
+                emailAddress: ajaxPersonEmailAddress
+            };
+
+            $.ajax({
+                    url: "/invisible-recaptcha/ajaxpost",
+                    type: "POST",
+                    contentType: "application/json; charset=UTF-8",
+                    data: JSON.stringify(ajaxPerson),
+                    dataType: "json",
+                    cache: false,
+                    processData: false,
+                    async: false,
+                    success: function (data, textStatus, jqXhr) { }
+                })
+                .done(function (data, textStatus, jqXhr) {
+                    alert(data.message);
+                })
+                .fail(function (jqXhr, textStatus, errorThrown) {
+                    alert(jqXhr.responseJSON ? jqXhr.responseJSON.message ? jqXhr.responseJSON.message :errorThrown : errorThrown);
+                })
+                .always(function (data, textStatus, jqXhr) {
+
+                });
+        }
+    }
+</script>
