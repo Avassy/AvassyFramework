@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Avassy.Framework.Demo.Controllers
 {
-    public class HomeController : Controller
+    public class InvisibleReCaptchaController : Controller
     {
         public IActionResult Index()
         {
