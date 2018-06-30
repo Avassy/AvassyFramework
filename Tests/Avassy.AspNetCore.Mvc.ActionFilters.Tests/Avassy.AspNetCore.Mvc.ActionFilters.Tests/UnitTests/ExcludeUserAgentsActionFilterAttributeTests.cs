@@ -61,7 +61,7 @@ namespace Avassy.AspNetCore.Mvc.ActionFilters.Tests.UnitTests
 
             var result = context.Result;
 
-            Assert.IsTrue(!(result is RedirectToActionResult));
+            Assert.IsFalse(result is RedirectToActionResult);
         }
     }
 
