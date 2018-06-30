@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.1.1011</Version>
+    <Version>2.1.1.1012</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <NeutralLanguage />
-    <AssemblyVersion>2.1.1.1011</AssemblyVersion>
-    <FileVersion>2.1.1.1011</FileVersion>
-    <Description>IHtmlHelper extension for Google's invisible reCaptcha.</Description>
+    <AssemblyVersion>2.1.1.1012</AssemblyVersion>
+    <FileVersion>2.1.1.1012</FileVersion>
+    <Description>IHtmlHelper extension for Google's invisible reCaptcha. See the demo: http://demo.avassy.com/invisible-recaptcha</Description>
     <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.AspNetCore.Mvc.InvisibleReCaptcha</RepositoryUrl>
