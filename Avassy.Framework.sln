@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.Framework.Demo", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.ActionFilters.Tests", "Tests\Avassy.AspNetCore.Mvc.ActionFilters.Tests\Avassy.AspNetCore.Mvc.ActionFilters.Tests\Avassy.AspNetCore.Mvc.ActionFilters.Tests.csproj", "{79CA35F8-3AD0-4F9C-B355-58B4FD87E2FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avassy.AspNetCore.Mvc.Extensions.Tests", "Tests\Avassy.AspNetCore.Mvc.Extensions.Tests\Avassy.AspNetCore.Mvc.Extensions.Tests\Avassy.AspNetCore.Mvc.Extensions.Tests.csproj", "{D8A20F7C-25DD-4E7C-A279-2F34A2446485}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{79CA35F8-3AD0-4F9C-B355-58B4FD87E2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79CA35F8-3AD0-4F9C-B355-58B4FD87E2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CA35F8-3AD0-4F9C-B355-58B4FD87E2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3EAC4353-5A27-45C6-BB49-B5DE76A9E51B} = {1EA17F9A-70E9-4EB5-8DBD-9FB62B3DABA9}
 		{79CA35F8-3AD0-4F9C-B355-58B4FD87E2FC} = {A16A2D47-986E-48A7-8FC4-55B3BA00AACA}
+		{D8A20F7C-25DD-4E7C-A279-2F34A2446485} = {A16A2D47-986E-48A7-8FC4-55B3BA00AACA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DBF911B-85DA-470D-8954-044641DE7406}
