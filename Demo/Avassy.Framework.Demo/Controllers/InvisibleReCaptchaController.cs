@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Avassy.Framework.Demo.Controllers
 {
-    [Route("invisible-recaptcha")]
+    [Route("Avassy.AspNetCore.Mvc.InvisibleReCaptcha")]
     public class InvisibleReCaptchaController : Controller
     {
         private const string _secretKey = "6LfCq1gUAAAAAOgHTYuQkBTXcgLb9veO-FGKAerv";
