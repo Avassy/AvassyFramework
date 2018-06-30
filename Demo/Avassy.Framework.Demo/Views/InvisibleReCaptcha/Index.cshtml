@@ -96,8 +96,8 @@
     </form>
 
     <script type="text/javascript">
-        $("#addPersonAjaxLink").click((ev) => { submitAjaxForm(ev); });
-        $("#clearPersonAjaxLink").click(() => { clearAjaxForm(); });
+        $("#addPersonAjaxLink").click(function(ev) { submitAjaxForm(ev); });
+        $("#clearPersonAjaxLink").click(function() { clearAjaxForm(); });
 
         function validateAjaxForm() {
             return $("#ajaxForm").valid();
@@ -176,7 +176,7 @@
     </form>
 
     <script type="text/javascript">
-        $("#addPersonAjaxSelect").change((ev) => { submitAjaxForm2(ev); });
+        $("#addPersonAjaxSelect").change(function(ev) { submitAjaxForm2(ev); });
 
         function submitAjaxForm2(ev) {
             var $elementId = "#" + ev.target.id;
