@@ -92,12 +92,12 @@
             <a href="#" id="clearPersonAjaxLink" class="btn btn-secondary" style="min-width: 150px;">clear</a>
         </div>
 
-        @this.Html.InvisibleReCaptchaFor(_siteKey, "addPersonAjaxLink", null, "(elementId) => { return $('#' + elementId).closest('form').valid(); }", true)
+        @this.Html.InvisibleReCaptchaFor(_siteKey, "addPersonAjaxLink", null, "function(elementId) { return $('#' + elementId).closest('form').valid(); }", true)
     </form>
 
     <script type="text/javascript">
-        $("#addPersonAjaxLink").click((ev) => { submitAjaxForm(ev); });
-        $("#clearPersonAjaxLink").click(() => { clearAjaxForm(); });
+        $("#addPersonAjaxLink").click(function(ev) { submitAjaxForm(ev); });
+        $("#clearPersonAjaxLink").click(function() { clearAjaxForm(); });
 
         function validateAjaxForm() {
             return $("#ajaxForm").valid();
@@ -163,7 +163,7 @@
     <form id="ajaxForm2">
         <div class="form-group">
             <label>Person:</label>
-            <select id="addPersonAjaxSelect" class="form-control" asp-invisible-recaptcha data-recaptcha-key="@_siteKey" data-recaptcha-event="change" data-recaptcha-before="() => confirm('Are you sure you want to change the person?')" data-recaptcha-cookie="true">
+            <select id="addPersonAjaxSelect" class="form-control" asp-invisible-recaptcha data-recaptcha-key="@_siteKey" data-recaptcha-event="change" data-recaptcha-before="function() confirm('Are you sure you want to change the person?')" data-recaptcha-cookie="true">
                 <option data-ignore="true">--Select a person--</option>
                 <option data-first-name="Bill" data-last-name="Gates" data-email-address="bill.gates@microsoft.com">Bill Gates</option>
                 <option data-first-name="Satya" data-last-name="Nadella" data-email-address="satya.nadella@microsoft.com">Satya Nadella</option>
@@ -176,7 +176,7 @@
     </form>
 
     <script type="text/javascript">
-        $("#addPersonAjaxSelect").change((ev) => { submitAjaxForm2(ev); });
+        $("#addPersonAjaxSelect").change(function(ev) { submitAjaxForm2(ev); });
 
         function submitAjaxForm2(ev) {
             var $elementId = "#" + ev.target.id;
