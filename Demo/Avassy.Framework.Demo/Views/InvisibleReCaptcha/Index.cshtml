@@ -163,7 +163,7 @@
     <form id="ajaxForm2">
         <div class="form-group">
             <label>Person:</label>
-            <select id="addPersonAjaxSelect" class="form-control" asp-invisible-recaptcha data-recaptcha-key="@_siteKey" data-recaptcha-event="change" data-recaptcha-before="function() confirm('Are you sure you want to change the person?')" data-recaptcha-cookie="true">
+            <select id="addPersonAjaxSelect" class="form-control" asp-invisible-recaptcha data-recaptcha-key="@_siteKey" data-recaptcha-event="change" data-recaptcha-before="function() { return confirm('Are you sure you want to change the person?'); }" data-recaptcha-cookie="true">
                 <option data-ignore="true">--Select a person--</option>
                 <option data-first-name="Bill" data-last-name="Gates" data-email-address="bill.gates@microsoft.com">Bill Gates</option>
                 <option data-first-name="Satya" data-last-name="Nadella" data-email-address="satya.nadella@microsoft.com">Satya Nadella</option>
