@@ -10,7 +10,7 @@
     var _siteKey = "6LfCq1gUAAAAAHcL4LCOFR2H-9i8O6issyWvN6IZ";
 }
 <div class="panel">
-    <h1 class="h1">Invisible reCaptcha</h1>
+    <h1 class="display-5">Invisible reCaptcha</h1>
     <hr class="my-2" />
 
     <p>See the reCaptcha docs on <a href="https://developers.google.com/recaptcha/docs/invisible">Google developers</a>.</p>
@@ -20,7 +20,7 @@
     </p>
 
     <hr class="my-2" />
-    <h4>Regular form POST with validation before reCaptcha on submit button element with g-recaptcha-response in form data with IHtmlHelper extension</h4>
+    <h4 class="font-weight-light">Regular form POST with validation before reCaptcha on submit button element with g-recaptcha-response in form data with IHtmlHelper extension</h4>
 
     <form asp-controller="InvisibleReCaptcha" asp-action="Post" method="post" role="form" id="postForm">
         @*<div asp-validation-summary="All" class="text-danger"></div>*@
@@ -68,7 +68,7 @@
 
 
     <hr />
-    <h4>AJAX POST with validation before reCaptcha on link element with g-recapcha-response in request header with IHtmlHelper extension</h4>
+    <h4 class="font-weight-light">AJAX POST with validation before reCaptcha on link element with g-recapcha-response in request header with IHtmlHelper extension</h4>
 
     <form id="ajaxForm">
         <div class="form-group">
@@ -158,7 +158,7 @@
     </script>
 
     <hr />
-    <h4>AJAX POST with confirm before reCaptcha on select element with g-recaptcha-response in cookie with TagHelper</h4>
+    <h4 class="font-weight-light">AJAX POST with confirm before reCaptcha on select element with g-recaptcha-response in cookie with TagHelper</h4>
 
     <form id="ajaxForm2">
         <div class="form-group">
