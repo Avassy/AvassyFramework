@@ -1,3 +1,34 @@
-﻿.content {
+﻿html, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    background-color: #eaeaec;
+}
+
+
+.content {
     padding-top: 100px;
+}
+
+    .content ul {
+        margin: 1em 0;
+        padding: 0 0 0 2em;
+    }
+
+.panel {
+    height: calc(100vh - 150px);
+    width: 100%;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

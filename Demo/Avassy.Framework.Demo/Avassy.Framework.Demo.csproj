@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
