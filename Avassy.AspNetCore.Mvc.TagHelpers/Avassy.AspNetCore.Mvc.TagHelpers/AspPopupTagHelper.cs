@@ -17,6 +17,8 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
 
         public string DisplayIconPosition { get; set; }
 
+        public string CssClass { get; set; }
+
         public string TemplateId { get; set; }
 
         public string HtmlContent { get; set; }
@@ -146,6 +148,12 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
 
             output.Attributes.SetAttribute("href", "#");
             output.Attributes.SetAttribute("onclick", $"{onClickFunctionName}();");
+
+            if (!string.IsNullOrEmpty(this.CssClass))
+            {
+                output.Attributes.SetAttribute("class", this.CssClass);
+            }
+
             output.Content.SetHtmlContent(tagContent);
         }
     }
