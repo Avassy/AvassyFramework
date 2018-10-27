@@ -103,12 +103,9 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
                     $"alert(\"The specified template with id '{this.TemplateId}' doesn't exist! Check if the template-id attribute is correct.\");" +
                     $"return;" +
                     $"}}" +
-
-                    $"var clone = templateElement.content.cloneNode(true);" +
-
+                    
                     $"var infoWindow = window.open(\"\", \"_blank\", \"toolbar=yes,scrollbars=yes,resizable=yes,width={this.Width},height={this.Height},top=\" + top + \",left=\" + left);" +
-
-                    $"infoWindow.document.body.appendChild(clone);" +
+                    $"infoWindow.document.body.innerHTML = templateElement.innerHTML;" +
 
                     $"if (window.focus) {{" +
                     $"infoWindow.focus();" +
