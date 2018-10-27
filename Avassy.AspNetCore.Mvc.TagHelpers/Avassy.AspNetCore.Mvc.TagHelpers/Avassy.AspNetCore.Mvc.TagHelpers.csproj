@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.0.1001</Version>
+    <Version>2.1.0.1002</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <Description>Some taghelpers for Asp.Net Core 2.1.</Description>
     <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
-    <PackageTags>2.1Taghelper ASP .Net Core</PackageTags>
+    <PackageTags>Taghelper ASP .Net Core 2.1</PackageTags>
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.TagHelpers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.AspNetCore.Mvc.TagHelpers</RepositoryUrl>
     <PackageIconUrl>http://www.avassy.com/images/favicon/android-icon-192x192.png</PackageIconUrl>

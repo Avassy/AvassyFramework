@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha.csproj" />
+    <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.TagHelpers\Avassy.AspNetCore.Mvc.TagHelpers\Avassy.AspNetCore.Mvc.TagHelpers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

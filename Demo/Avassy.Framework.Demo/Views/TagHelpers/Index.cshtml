@@ -1,0 +1,133 @@
+﻿@using Avassy.Framework.Demo.ViewModels
+
+@model TagHelpersViewModel
+
+@{
+    this.ViewData["Title"] = "Avassy.AspNetCore.Mvc.TagHelpers";
+    this.ViewBag.ActivePage = "TagHelpers";
+}
+
+<div class="panel">
+    <h1 class="display-5">Tag Helpers</h1>
+    <hr class="my-2" />
+    <p>See the docs for this example on <a href="http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.TagHelpers/docs">http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.TagHelpers/docs</a>.</p>
+
+    <hr class="my-2" />
+    <h4 class="font-weight-light">asp-placeholder-for</h4>
+
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>&lt;input type="text" class="form-control" asp-placeholder-for="Name" /&gt;</pre>
+    </p>
+    <p>
+        <h6 style="text-decoration: underline;">C#:</h6>
+        <pre>[Display(Name = "Enter your name")]
+public string Name { get; set; }</pre>
+    </p>
+    <p>
+        <h6 style="text-decoration: underline;">Result:</h6>
+        <input type="text" class="form-control col-md-3" asp-placeholder-for="Name" />
+    </p>
+
+    <hr class="my-2" />
+    <h4 class="font-weight-light">asp-popup</h4>
+    <p>
+        This example has no display text, top, left, height or width specified. Defaults for top and left is the center and middle of the screen, the defaults for height and width are 500px. No display text will be shown.
+    </p>
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>&lt;asp-popup display-icon-css-class="fas fa-info-circle" /&gt;</pre>
+        <pre>Place the template somewhere on the page:</pre>
+        <pre>&lt;template id="info1"&gt;
+&lt;style&gt;
+        .h1-styled {
+            font-size: 20px;
+            color: red;
+        }
+&lt;/style&gt;
+&lt;h1 class="h1-styled"&gt;This is a styled title&lt;/h1&gt;
+&lt;p&gt;
+        This is the content
+&lt;/p&gt;
+&lt;/template&gt;</pre>
+    </p>
+    <p>
+        <h6 style="text-decoration: underline;">Result:</h6>
+        Click the icon to open the popup:  <asp-popup display-icon-css-class="fas fa-info-circle" template-id="info1" />
+    </p>
+    <br />
+    <br />
+    <p>This second example has all the attributes specified. The default for the display-icon-position attribute is "before", but we specify "after", so it will render after the display-text.</p>
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>&lt;asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" /&gt;</pre>
+        <pre>Place the template somewhere on the page:</pre>
+        <pre>&lt;template id="info2"&gt;
+&lt;style&gt;
+    .h1-styled {
+        font-size: 20px;
+        color: green;
+    }
+&lt;/style&gt;
+&lt;h1 class="h1-styled">This is a styled title&lt;/h1&gt;
+&lt;p&gt;
+    This is the content
+&lt;/p&gt;
+&lt;/template&gt;</pre>
+    </p>
+    <p>
+        <h6 style="text-decoration: underline;">Result:</h6>
+        Click the link to open the popup:  <asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" />
+    </p>
+    <br />
+    <br />
+    <p>For older browsers that do not support the &lt;template&gt; tag, you can specify the html-content attribute with the HTML you want to display in the popup, recommended is to build the HTML in a helper method and put it in a variable to not clutter the asp-popup tag.</p>
+
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>@@{
+    var html = "&lt;h1 id=\"title\">This is the title&lt;/h1&gt;&lt;p&gt;This is the content&lt;/p&gt;";
+}
+</pre>
+        <pre>&lt;asp-popup display-icon-css-class="fas fa-info-circle" html-content="@@html" /&gt;</pre>
+    </p>
+
+    @{
+        var html = "<h1 id=\"title\">This is the title</h1><p>This is the content</p>";
+    }
+    <p>
+        <h6 style="text-decoration: underline;">Result:</h6>
+        Click the icon to open the popup:  <asp-popup display-icon-css-class="fas fa-info-circle" html-content="@html" />
+    </p>
+
+</div>
+
+@section Styles{
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+}
+
+<template id="info1">
+    <style>
+        .h1-styled {
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+    <h1 class="h1-styled">This is a styled title</h1>
+    <p>
+        This is the content
+    </p>
+</template>
+
+<template id="info2">
+    <style>
+        .h1-styled {
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+    <h1 class="h1-styled">This is a styled title</h1>
+    <p>
+        This is the content
+    </p>
+</template>
