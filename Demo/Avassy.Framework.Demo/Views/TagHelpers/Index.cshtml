@@ -60,7 +60,12 @@ public string Name { get; set; }</pre>
     <p>This second example has all the attributes specified. The default for the display-icon-position attribute is "before", but we specify "after", so it will render after the display-text.</p>
     <p>
         <h6 style="text-decoration: underline;">Razor:</h6>
-        <pre>&lt;asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" /&gt;</pre>
+        <pre>&lt;style&gt;
+    .styled-link {
+        color: orange;
+    }
+&lt;style&gt;</pre>
+        <pre>&lt;asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" css-class="styled-link" /&gt;</pre>
         <pre>Place the template somewhere on the page:</pre>
         <pre>&lt;template id="info2"&gt;
 &lt;style&gt;
@@ -77,7 +82,7 @@ public string Name { get; set; }</pre>
     </p>
     <p>
         <h6 style="text-decoration: underline;">Result:</h6>
-        Click the link to open the popup:  <asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" />
+        Click the link to open the popup:  <asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" css-class="styled-link" />
     </p>
     <br />
     <br />
@@ -104,6 +109,12 @@ public string Name { get; set; }</pre>
 
 @section Styles{
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    
+    <style>
+        .styled-link {
+            color: orange;
+        }
+    </style>
 }
 
 <template id="info1">
