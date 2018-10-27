@@ -13,6 +13,10 @@ See a live demo at [http://demo.avassy.com/Avassy.AspNetCore.Mvc.TagHelpers](htt
 
 ## Usage
 
+To use these tag helpers, you must import them in your *_ViewImports.cshtml* file like so: `@addTagHelper *, Avassy.AspNetCore.Mvc.TagHelpers`.
+
+---
+
 ### `AspPlaceholderForTagHelper` sets a placeholder for the INPUT or TEXTAREA.
 
 This helper takes the value of the `[Display(Name="Enter your name.")]` attribute and displays it as a placeholder for your INPUT or TEXTAREA.
