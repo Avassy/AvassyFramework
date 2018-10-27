@@ -56,8 +56,11 @@
             <li class="@(activePage == "Home" ? "nav-item active" : "nav-item")">
                 <a asp-controller="Home" asp-action="Index" class="nav-link" title="Home">Home</a>
             </li>
+            <li class="@(activePage == "TagHelpers" ? "nav-item active" : "nav-item")">
+                <a asp-controller="TagHelpers" asp-action="Index" class="nav-link" title="Avassy.AspNetCore.Mvc.TagHelpers">Avassy.AspNetCore.Mvc.TagHelpers</a>
+            </li>
             <li class="@(activePage == "InvisibleReCaptcha" ? "nav-item active" : "nav-item")">
-                <a asp-controller="InvisibleReCaptcha" asp-action="Index" class="nav-link" title="Framework">Avassy.AspNetCore.Mvc.InvisibleReCaptcha</a>
+                <a asp-controller="InvisibleReCaptcha" asp-action="Index" class="nav-link" title="Avassy.AspNetCore.Mvc.InvisibleReCaptcha">Avassy.AspNetCore.Mvc.InvisibleReCaptcha</a>
             </li>
         </ul>
     </div>

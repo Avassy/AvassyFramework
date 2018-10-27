@@ -15,7 +15,7 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
         private const string AspPlaceholderForAttributeName = "asp-placeholder-for";
 
         /// <summary>
-        /// Gets or sets the For model expression..
+        /// Gets or sets the For model expression.
         /// </summary>
         /// <value>
         /// For.
