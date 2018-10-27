@@ -1,6 +1,10 @@
-# Avassy.AspNetCore.Mvc.InvisibleRecaptcha
+# Avassy.AspNetCore.Mvc.InvisibleReCaptcha
 
-See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleRecaptcha for more info.
+See [http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha](http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha) for more info.
+
+## Demo
+
+See a live demo at [http://demo.avassy.com/Avassy.AspNetCore.Mvc.InvisibleReCaptcha](http://demo.avassy.com/Avassy.AspNetCore.Mvc.InvisibleReCaptcha)
 
 ## Classes
 
@@ -46,8 +50,12 @@ Example:
             return this.View("Error");
         }
     }
+		
+---
 
 ### `ReCaptchaBuilder` renders all the js code and markup related to the reCaptcha challenge.
+
+---
 
 ### `ReCaptchaHelperExtensions` provides a IHtmlHelperExtension *(OBSOLETE, see `ReCaptchaTagHelpers`)*.
 
@@ -97,6 +105,7 @@ Example:
         </form>
     </div>
 
+---
 
 ### `ReCaptchaTagHelpers` provides a tag helper for the invisible reCaptcha.
 

@@ -1,7 +1,6 @@
-
 # Avassy.NetCore.Global.Extensions
 
-See http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions for more info.
+See [http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions](http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions) for more info.
 
 ## Classes
 
@@ -36,6 +35,8 @@ List<string> list = new List<string>();
 Collection<string> collection = list.ToCollection();
 ```
 
+---
+
 ### `StringExtensions`
 
 #### `RemoveSpecialCharactersAndSpaces` removes all special characters and spaces in a string.
@@ -50,5 +51,4 @@ var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
 // Output: "hello-user"
 ```
 
-This is usefull to create an nicely formatted URL.
-
+This is useful to create an nicely formatted URL.
