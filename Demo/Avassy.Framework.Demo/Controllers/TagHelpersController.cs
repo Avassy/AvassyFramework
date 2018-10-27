@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Avassy.Framework.Demo.Controllers
 {
+    [Route("Avassy.AspNetCore.Mvc.TagHelpers")]
     public class TagHelpersController : Controller
     {
         public IActionResult Index()
