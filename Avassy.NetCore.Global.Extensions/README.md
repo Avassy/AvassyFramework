@@ -1,3 +1,7 @@
+# Avassy.NetCore.Global.Extensions
+
+See [http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions](http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions) for more info.
+
 ## Classes
 
 - `Avassy.NetCore.Global.Extensions.EnumerableExtensions`
