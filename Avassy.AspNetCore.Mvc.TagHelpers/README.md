@@ -9,6 +9,7 @@ See a live demo at [http://demo.avassy.com/Avassy.AspNetCore.Mvc.TagHelpers](htt
 ## Classes
 
 - `Avassy.AspNetCore.Mvc.TagHelpers.AspPlaceholderForTagHelper`
+- `Avassy.AspNetCore.Mvc.TagHelpers.AspPlaceholderLabelToggleTagHelper`
 - `Avassy.AspNetCore.Mvc.TagHelpers.AspPopupTagHelper`
 
 ## Usage
@@ -29,9 +30,37 @@ Example:
 
 ---
 
+### `AspPlaceholderLabelToggleTagHelper` toggles a placeholder and a label for the INPUT or TEXTAREA.
+
+This helper allows you to toggle the placeholder and the label. It automatically creates a label and when you enter the input it will show this label, it's handy when entering text so you can still see what the field is called.
+
+Example:
+
+```
+<style>
+.form-group {
+    position: relative;
+    padding-top: 15px;
+}
+
+.toggle-label {
+    position: absolute;
+    padding: 0;
+    margin: -15px 0 0 0;
+    font-size: 11px;
+}
+</style>
+
+<div class="form-group">
+    <input type="text" class="form-control col-md-3" asp-placeholder-label-toggle placeholder="Enter your name" data-label-css-class="toggle-label" />
+</div>
+```
+
+---
+
 ### `AspPopupTagHelper` creates a link button that pops up a window
 
-This helper creates the link button and Javascript to pop up a new window with content specified in a `<template>` tag of by specifying the HTML content (for older browsers that do not support the `<template>` tag).
+This helper creates the link button and Javascript to pop up a new window with content specified in a `<template>` tag or by specifying the HTML content (for older browsers that do not support the `<template>` tag).
 
 #### Attributes
 
@@ -45,7 +74,7 @@ This helper creates the link button and Javascript to pop up a new window with c
 
 - template-id (string, required when the html-content attribute is not set): the id of the `<template>` tag that contains the HTML for the popup window.
 
-- html-content (string, required when the template-id attribute is not set): The HTML that needs to be rendered in the popup window, recommended is to build this in a razor function and put it in a variable to not clutter the `asp-popup` tag. *(Note: This is for browsers that do not support the `<template>` tag)*
+- html-content (string, required when the template-id attribute is not set): The HTML that needs to be rendered in the popup window, recommended is to build this in a razor function and put it in a variable to not clutter the `<asp-popup>` tag. *(Note: This is for browsers that do not support the `<template>` tag)*
 
 - top (int, optional, default: vertical middle of the screen): The amount of pixels measured from the screen's top to align the popup window vertically.
 
