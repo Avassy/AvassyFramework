@@ -6,6 +6,7 @@ See [http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions
 
 - `Avassy.NetCore.Global.Extensions.EnumerableExtensions`
 - `Avassy.NetCore.Global.Extensions.StringExtensions`
+- `Avassy.NetCore.Global.Extensions.QueryableExtensions`
 
 ## Usage
 
@@ -43,7 +44,7 @@ Collection<string> collection = list.ToCollection();
 
 ##### Parameters:
 
-- charToReplaceSpace (char, optional, default '-'): the char you want to use to replace the spaces in a string.
+- charToReplaceSpace (char, optional, default '-'): The char you want to use to replace the spaces in a string.
 
 ```
 var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
@@ -52,3 +53,83 @@ var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
 ```
 
 This is useful to create an nicely formatted URL.
+
+---
+
+### `QueryableExtensions`
+
+#### `OrderBy` orders an `IQueryable` by the parameter name.
+
+##### Parameters:
+
+- propertyName (string, required): The name of the property you want to order by.
+
+Example:
+
+```
+public class Person {
+    public string Name { get; set; }
+		public DateTime Birthday { get; set; }
+}
+
+var list = new List<Person> { new Person { Name = "Jack", Birthday = new DateTime(1970,1,1) }, new Person { Name = "Bill", Birthday = new DateTime(1970,6,6) } };
+var queryable = list.AsQueryable();
+var orderedQueryable = queryable.OrderBy("Name");
+```
+
+#### `OrderByDescending` orders an `IQueryable` by the parameter name in descending direction.
+
+Example:
+
+```
+public class Person {
+    public string Name { get; set; }
+		public DateTime Birthday { get; set; }
+}
+
+var list = new List<Person> { new Person { Name = "Jack", Birthday = new DateTime(1970,1,1) }, new Person { Name = "Bill", Birthday = new DateTime(1970,6,6) } };
+var queryable = list.AsQueryable();
+var orderedQueryable = queryable.OrderByDescending("Name");
+```
+
+##### Parameters:
+
+- propertyName (string, required): The name of the property you want to order by.
+
+#### `ThenBy` orders an `IOrderedQueryable` by the parameter name.
+
+##### Parameters:
+
+- propertyName (string, required): The name of the property you want to order by.
+
+Example:
+
+```
+public class Person {
+    public string Name { get; set; }
+		public DateTime Birthday { get; set; }
+}
+
+var list = new List<Person> { new Person { Name = "Jack", Birthday = new DateTime(1970,1,1) }, new Person { Name = "Bill", Birthday = new DateTime(1970,6,6) } };
+var queryable = list.AsQueryable();
+var orderedQueryable = queryable.OrderBy("Name").ThenBy("Bitrthday");
+```
+
+#### `ThenByDescending orders an `IOrderedQueryable` by the parameter name in descending direction.`
+
+##### Parameters:
+
+- propertyName (string, required): The name of the property you want to order by.
+
+Example:
+
+```
+public class Person {
+    public string Name { get; set; }
+		public DateTime Birthday { get; set; }
+}
+
+var list = new List<Person> { new Person { Name = "Jack", Birthday = new DateTime(1970,1,1) }, new Person { Name = "Bill", Birthday = new DateTime(1970,6,6) } };
+var queryable = list.AsQueryable();
+var orderedQueryable = queryable.OrderBy("Name").ThenByDescending("Birthday");;
+```formatted URL.
