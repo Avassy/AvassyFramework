@@ -6,29 +6,97 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Avassy.AspNetCore.Mvc.TagHelpers
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// The class that holds a TagHelper to create a popup.
+    /// </summary>
+    /// <seealso cref="T:Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" />
     [HtmlTargetElement(AspPopupName, TagStructure = TagStructure.WithoutEndTag)]
     public class AspPopupTagHelper : TagHelper
     {
+        /// <summary>
+        /// The asp-popup tagname
+        /// </summary>
         private const string AspPopupName = "asp-popup";
 
+        /// <summary>
+        /// Gets or sets the display text.
+        /// </summary>
+        /// <value>
+        /// The display text.
+        /// </value>
         public string DisplayText { get; set; }
 
+        /// <summary>
+        /// Gets or sets the display icon CSS class.
+        /// </summary>
+        /// <value>
+        /// The display icon CSS class.
+        /// </value>
         public string DisplayIconCssClass { get; set; }
 
+        /// <summary>
+        /// Gets or sets the display icon position. This value must be "before" or "after".
+        /// </summary>
+        /// <value>
+        /// The display icon position.
+        /// </value>
         public string DisplayIconPosition { get; set; }
 
+        /// <summary>
+        /// Gets or sets the CSS class of the popup linkbutton.
+        /// </summary>
+        /// <value>
+        /// The CSS class.
+        /// </value>
         public string CssClass { get; set; }
 
+        /// <summary>
+        /// Gets or sets the template identifier for the template that holds the HTML for the popup.
+        /// </summary>
+        /// <value>
+        /// The template identifier.
+        /// </value>
         public string TemplateId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the HTML content of the popup.
+        /// </summary>
+        /// <value>
+        /// The content of the HTML.
+        /// </value>
         public string HtmlContent { get; set; }
 
+        /// <summary>
+        /// Gets or sets the top offset for the popup.
+        /// </summary>
+        /// <value>
+        /// The top.
+        /// </value>
         public int Top { get; set; }
 
+        /// <summary>
+        /// Gets or sets the left offset for the popup.
+        /// </summary>
+        /// <value>
+        /// The left.
+        /// </value>
         public int Left { get; set; }
 
+        /// <summary>
+        /// Gets or sets the height of the popup.
+        /// </summary>
+        /// <value>
+        /// The height.
+        /// </value>
         public int Height { get; set; }
 
+        /// <summary>
+        /// Gets or sets the width of the popup.
+        /// </summary>
+        /// <value>
+        /// The width.
+        /// </value>
         public int Width { get; set; }
 
         /// <inheritdoc />

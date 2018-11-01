@@ -14,7 +14,6 @@
 
     <hr class="my-2" />
     <h4 class="font-weight-light">asp-placeholder-for</h4>
-
     <p>
         <h6 style="text-decoration: underline;">Razor:</h6>
         <pre>&lt;input type="text" class="form-control" asp-placeholder-for="Name" /&gt;</pre>
@@ -30,60 +29,94 @@ public string Name { get; set; }</pre>
     </p>
 
     <hr class="my-2" />
+    <h4 class="font-weight-light">asp-placeholder-label-toggle</h4>
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>
+&lt;style&gt;
+.form-group {
+    position: relative;
+    padding-top: 15px;
+}
+
+.toggle-label {
+    position: absolute;
+    padding: 0;
+    margin: -15px 0 0 0;
+    font-size: 11px;
+}
+&lt;/style&gt;</pre>
+        <pre>
+&lt;div class="form-group"&gt;
+    &lt;input type="text" class="form-control col-md-3" asp-placeholder-label-toggle placeholder="Enter your name" data-label-css-class="toggle-label" /&gt;
+&lt;div&gt;
+</pre>
+    </p>
+
+    <h6 style="text-decoration: underline;">Result:</h6>
+    <div class="form-group">
+        <input type="text" class="form-control col-md-3" asp-placeholder-label-toggle placeholder="Enter your name" data-label-css-class="toggle-label" />
+    </div>
+
+    <hr class="my-2" />
     <h4 class="font-weight-light">asp-popup</h4>
     <p>
         This example has no display text, top, left, height or width specified. Defaults for top and left is the center and middle of the screen, the defaults for height and width are 500px. No display text will be shown.
     </p>
     <p>
         <h6 style="text-decoration: underline;">Razor:</h6>
-        <pre>&lt;asp-popup display-icon-css-class="fas fa-info-circle" /&gt;</pre>
+        <pre>&lt;asp-popup display-icon-css-class="fas fa-info-circle" template-id="info1" /&gt;</pre>
         <pre>Place the template somewhere on the page:</pre>
         <pre>&lt;template id="info1"&gt;
 &lt;style&gt;
-        .h1-styled {
-            font-size: 20px;
-            color: red;
-        }
+.h1-styled {
+    font-size: 20px;
+    color: red;
+}
 &lt;/style&gt;
 &lt;h1 class="h1-styled"&gt;This is a styled title&lt;/h1&gt;
-&lt;p&gt;
+    &lt;p&gt;
         This is the content
-&lt;/p&gt;
+    &lt;/p&gt;
 &lt;/template&gt;</pre>
     </p>
     <p>
         <h6 style="text-decoration: underline;">Result:</h6>
         Click the icon to open the popup:  <asp-popup display-icon-css-class="fas fa-info-circle" template-id="info1" />
     </p>
+
     <br />
     <br />
     <p>This second example has all the attributes specified. The default for the display-icon-position attribute is "before", but we specify "after", so it will render after the display-text.</p>
     <p>
         <h6 style="text-decoration: underline;">Razor:</h6>
-        <pre>&lt;style&gt;
-    .styled-link {
-        color: orange;
-    }
-&lt;style&gt;</pre>
+        <pre>
+&lt;style&gt;
+.styled-link {
+    color: orange;
+}
+&lt;style&gt;
+</pre>
         <pre>&lt;asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" css-class="styled-link" /&gt;</pre>
         <pre>Place the template somewhere on the page:</pre>
         <pre>&lt;template id="info2"&gt;
-&lt;style&gt;
+    &lt;style&gt;
     .h1-styled {
         font-size: 20px;
         color: green;
     }
-&lt;/style&gt;
-&lt;h1 class="h1-styled">This is a styled title&lt;/h1&gt;
-&lt;p&gt;
-    This is the content
-&lt;/p&gt;
+    &lt;/style&gt;
+    &lt;h1 class="h1-styled">This is a styled title&lt;/h1&gt;
+    &lt;p&gt;
+        This is the content
+    &lt;/p&gt;
 &lt;/template&gt;</pre>
     </p>
     <p>
         <h6 style="text-decoration: underline;">Result:</h6>
         Click the link to open the popup:  <asp-popup display-text="Info" display-icon-css-class="fas fa-info-circle" display-icon-position="after" top="200" left="400" height="200" width="100" template-id="info2" css-class="styled-link" />
     </p>
+
     <br />
     <br />
     <p>For older browsers that do not support the &lt;template&gt; tag, you can specify the html-content attribute with the HTML you want to display in the popup, recommended is to build the HTML in a helper method and put it in a variable to not clutter the asp-popup tag.</p>
@@ -104,15 +137,28 @@ public string Name { get; set; }</pre>
         <h6 style="text-decoration: underline;">Result:</h6>
         Click the icon to open the popup:  <asp-popup display-icon-css-class="fas fa-info-circle" html-content="@html" />
     </p>
-
 </div>
 
 @section Styles{
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    
+
     <style>
         .styled-link {
             color: orange;
+        }
+    </style>
+
+    <style>
+        .form-group {
+            position: relative;
+            padding-top: 15px;
+        }
+
+        .toggle-label {
+            position: absolute;
+            padding: 0;
+            margin: -15px 0 0 0;
+            font-size: 11px;
         }
     </style>
 }
