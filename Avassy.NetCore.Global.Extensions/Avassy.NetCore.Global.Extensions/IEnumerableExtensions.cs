@@ -5,7 +5,7 @@ using System.Linq;
 namespace Avassy.NetCore.Global.Extensions
 {
     /// <summary>
-    /// This class IEnumerable extension methods.
+    /// This class contains some IEnumerable extension methods.
     /// </summary>
     public static class EnumerableExtensions
     {
