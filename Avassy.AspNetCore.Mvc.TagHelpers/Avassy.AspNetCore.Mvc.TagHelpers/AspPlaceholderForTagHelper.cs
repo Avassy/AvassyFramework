@@ -5,13 +5,17 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
 {
     /// <inheritdoc />
     /// <summary>
-    /// The class that holds a TagHelper to create a placeholder for a control based on the Display attribute..
+    /// The class that holds a TagHelper to create a placeholder for a control based on the Display attribute.
     /// </summary>
     /// <seealso cref="T:Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" />
     [HtmlTargetElement("input", Attributes = AspPlaceholderForAttributeName)]
     [HtmlTargetElement("textarea", Attributes = AspPlaceholderForAttributeName)]
     public class AspPlaceholderForTagHelper : TagHelper
     {
+
+        /// <summary>
+        /// The asp- placeholder-for tagname
+        /// </summary>
         private const string AspPlaceholderForAttributeName = "asp-placeholder-for";
 
         /// <summary>
