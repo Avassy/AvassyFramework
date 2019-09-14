@@ -54,6 +54,16 @@ var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
 
 This is useful to create an nicely formatted URL.
 
+#### `ToBase64` converts a simple string to .
+
+```
+var str = "~hello* user!".ToBase64();
+
+// Output: "fmhlbGxvKiB1c2VyIQ=="
+```
+
+Quick encoding to a base64 string.
+
 ---
 
 ### `QueryableExtensions`
