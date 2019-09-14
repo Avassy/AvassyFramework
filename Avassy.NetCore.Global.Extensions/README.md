@@ -54,6 +54,37 @@ var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
 
 This is useful to create an nicely formatted URL.
 
+#### `ToBase64` converts a simple string to .
+
+```
+var str = "~hello* user!".ToBase64();
+
+// Output: "fmhlbGxvKiB1c2VyIQ=="
+```
+
+Quick encoding to a base64 string.
+
+#### `FromBase64` converts a base64 string to a simple string .
+
+```
+var str = "fmhlbGxvKiB1c2VyIQ==".FromBase64();
+
+// Output: "~hello* user!"
+```
+
+Quick encoding to a base64 string.
+
+#### `ToCamelCase` converts a PascalCase string to a camelCase string .
+
+```
+var str = "ThisIsAPascalCaseString".ToCamelCase();
+
+// Output: "thisIsAPascalCaseString"
+```
+
+Quick encoding to a base64 string.
+
+
 ---
 
 ### `QueryableExtensions`
