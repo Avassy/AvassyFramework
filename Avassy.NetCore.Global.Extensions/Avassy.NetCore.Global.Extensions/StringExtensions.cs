@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Buffers.Text;
+using System.Text;
 
 namespace Avassy.NetCore.Global.Extensions
 {
@@ -27,6 +29,18 @@ namespace Avassy.NetCore.Global.Extensions
                 sb.Append(c == ' ' ? charToReplaceSpace : c);
             }
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Converts a simple string to a base64 encoded string.
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <returns>A base64 encoded string.</returns>
+        public static string ToBase64(this string str)
+        {
+            var plainTextBytes = Encoding.UTF8.GetBytes(str);
+
+            return Convert.ToBase64String(plainTextBytes);
         }
     }
 }
