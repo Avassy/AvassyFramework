@@ -31,6 +31,11 @@ namespace Avassy.NetCore.Global.Extensions
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Converts a simple string to a base64 encoded string.
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <returns>A base64 encoded string.</returns>
         public static string ToBase64(this string str)
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(str);
