@@ -90,7 +90,7 @@ namespace Avassy.NetCore.Global.Extensions
 
             var firstLetter = str.FirstOrDefault();
 
-            return str.Remove(0, 1).Insert(0, firstLetter.ToString());
+            return str.Remove(0, 1).Insert(0, firstLetter.ToString().ToLowerInvariant());
         }
     }
 }
