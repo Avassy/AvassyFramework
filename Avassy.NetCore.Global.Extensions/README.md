@@ -64,6 +64,27 @@ var str = "~hello* user!".ToBase64();
 
 Quick encoding to a base64 string.
 
+#### `FromBase64` converts a base64 string to a simple string .
+
+```
+var str = "fmhlbGxvKiB1c2VyIQ==".FromBase64();
+
+// Output: "~hello* user!"
+```
+
+Quick encoding to a base64 string.
+
+#### `ToCamelCase` converts a PascalCase string to a camelCase string .
+
+```
+var str = "ThisIsAPascalCaseString".ToCamelCase();
+
+// Output: "thisIsAPascalCaseString"
+```
+
+Quick encoding to a base64 string.
+
+
 ---
 
 ### `QueryableExtensions`
