@@ -1,14 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.1.1014</Version>
+    <Version>2.1.1.1015</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <NeutralLanguage />
-    <AssemblyVersion>2.1.1.1014</AssemblyVersion>
-    <FileVersion>2.1.1.1014</FileVersion>
+    <AssemblyVersion>2.1.1.1015</AssemblyVersion>
+    <FileVersion>2.1.1.1015</FileVersion>
     <Description>IHtmlHelper extension for Google's invisible reCaptcha. See the demo: http://demo.avassy.com/Avassy.AspNetCore.Mvc.InvisibleReCaptcha</Description>
     <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.InvisibleReCaptcha</PackageProjectUrl>
@@ -32,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>System</HintPath>
     </Reference>
