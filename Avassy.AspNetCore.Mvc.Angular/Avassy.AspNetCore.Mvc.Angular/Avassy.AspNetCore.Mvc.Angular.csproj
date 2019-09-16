@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <PackageId>Avassy.AspNetCore.Mvc.Angular</PackageId>
-    <Version>2.1.0.1000</Version>
+    <Version>2.1.0.1001</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <Description>Some extensions and helpers for Anguolar in Asp.Net Core 2.1 applications.</Description>
