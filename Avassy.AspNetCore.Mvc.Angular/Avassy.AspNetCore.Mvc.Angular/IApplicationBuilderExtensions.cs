@@ -38,7 +38,7 @@ namespace Avassy.AspNetCore.Mvc.Angular
                 return options;
             }
 
-            options.AddRewrite(@" ^((\w+))*\/?(\.\w{5,})?\??([^.]+)?$", target, skipRemainingRules);
+            options.AddRewrite(@"^((\w+))*\/?(\.\w{5,})?\??([^.]+)?$", target, skipRemainingRules);
 
             return options;
         }
