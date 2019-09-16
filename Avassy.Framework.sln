@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.ActionFilters", "Avassy.AspNetCore.Mvc.ActionFilters\Avassy.AspNetCore.Mvc.ActionFilters\Avassy.AspNetCore.Mvc.ActionFilters.csproj", "{9E6D2623-9891-4E6C-9575-B445FA026465}"
 EndProject
@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.Framework.Demo", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.ActionFilters.Tests", "Tests\Avassy.AspNetCore.Mvc.ActionFilters.Tests\Avassy.AspNetCore.Mvc.ActionFilters.Tests\Avassy.AspNetCore.Mvc.ActionFilters.Tests.csproj", "{79CA35F8-3AD0-4F9C-B355-58B4FD87E2FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avassy.AspNetCore.Mvc.Extensions.Tests", "Tests\Avassy.AspNetCore.Mvc.Extensions.Tests\Avassy.AspNetCore.Mvc.Extensions.Tests\Avassy.AspNetCore.Mvc.Extensions.Tests.csproj", "{D8A20F7C-25DD-4E7C-A279-2F34A2446485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.Extensions.Tests", "Tests\Avassy.AspNetCore.Mvc.Extensions.Tests\Avassy.AspNetCore.Mvc.Extensions.Tests\Avassy.AspNetCore.Mvc.Extensions.Tests.csproj", "{D8A20F7C-25DD-4E7C-A279-2F34A2446485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avassy.AspNetCore.Mvc.Angular", "Avassy.AspNetCore.Mvc.Angular\Avassy.AspNetCore.Mvc.Angular.csproj", "{E2CF60BC-38AA-444E-A720-7EB3BB997BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A20F7C-25DD-4E7C-A279-2F34A2446485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2CF60BC-38AA-444E-A720-7EB3BB997BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2CF60BC-38AA-444E-A720-7EB3BB997BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2CF60BC-38AA-444E-A720-7EB3BB997BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2CF60BC-38AA-444E-A720-7EB3BB997BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

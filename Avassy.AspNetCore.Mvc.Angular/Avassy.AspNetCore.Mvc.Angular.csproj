@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PackageId>Avassy.AspNetCore.Mvc.Angular</PackageId>
+    <Version>2.1.0.1000-alpha-001</Version>
+    <Authors>Brecht Baekelandt</Authors>
+    <Company>Avassy</Company>
+    <Description>Some extensions and helpers for Anguolar in Asp.Net Core 2.1 applications.</Description>
+    <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Angular</PackageProjectUrl>
+    <PackageIconUrl>http://www.avassy.com/images/favicon/favicon-96x96.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.AspNetCore.Mvc.Angular</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Rewrite">
+      <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.rewrite\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Rewrite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
