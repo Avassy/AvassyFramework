@@ -14,7 +14,7 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
     {
 
         /// <summary>
-        /// The asp- placeholder-for tagname
+        /// The asp-placeholder-for tag name
         /// </summary>
         private const string AspPlaceholderForAttributeName = "asp-placeholder-for";
 
