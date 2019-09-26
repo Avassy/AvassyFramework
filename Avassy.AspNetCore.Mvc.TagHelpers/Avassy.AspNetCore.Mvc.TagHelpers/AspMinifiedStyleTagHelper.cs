@@ -14,13 +14,13 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
     /// The class that holds a TagHelper that minifies stylesheets.
     /// </summary>
     /// <seealso cref="T:Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" />
-    [HtmlTargetElement("style", Attributes = AspMinifiedCssAttributeName)]
-    public class AspMinifiedCssTagHelper : TagHelper
+    [HtmlTargetElement("style", Attributes = AspMinifiedStyleAttributeName)]
+    public class AspMinifiedStyleTagHelper : TagHelper
     {
         /// <summary>
         /// The asp-minified-style tag name
         /// </summary>
-        private const string AspMinifiedCssAttributeName = "asp-minified-style";
+        private const string AspMinifiedStyleAttributeName = "asp-minified-style";
 
         /// <inheritdoc />
         /// <summary>
