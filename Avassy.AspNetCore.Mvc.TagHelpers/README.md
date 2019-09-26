@@ -26,9 +26,7 @@ This helper minifies javascript that is placed between SCRIPT tags.
 
 Example:
 
-``
-<script type="text/javascript" asp-minified-script> ... javascript here ... </script>
-``
+`<script type="text/javascript" asp-minified-script> ... javascript here ... </script>`
 
 ---
 
@@ -38,9 +36,7 @@ This helper minifies css that is placed between STYLE tags.
 
 Example:
 
-``
-<style type="text/css" asp-minified-style> ... css here ... </style>
-``
+`<style type="text/css" asp-minified-style> ... css here ... </style>`
 
 ---
 
@@ -50,9 +46,7 @@ This helper takes the value of the `[Display(Name="Enter your name.")]` attribut
 
 Example:
 
-``
-<input type="text" asp-for="Name" asp-placeholder-for="Name" />
-``
+`<input type="text" asp-for="Name" asp-placeholder-for="Name" />`
 
 ---
 
