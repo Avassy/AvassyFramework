@@ -14,7 +14,7 @@ namespace Avassy.AspNetCore.Mvc.TagHelpers
     public class AspPlaceholderLabelToggleTagHelper : TagHelper
     {
         /// <summary>
-        /// The asp-placeholder-label-toggle tagname
+        /// The asp-placeholder-label-toggle tag name
         /// </summary>
         private const string AspPlaceholderLabelToggleAttributeName = "asp-placeholder-label-toggle";
 
