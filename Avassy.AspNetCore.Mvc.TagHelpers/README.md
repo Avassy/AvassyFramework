@@ -8,6 +8,8 @@ See a live demo at [http://demo.avassy.com/Avassy.AspNetCore.Mvc.TagHelpers](htt
 
 ## Classes
 
+- `Avassy.AspNetCore.Mvc.TagHelpers.AspMinifiedScriptTagHelper`
+- `Avassy.AspNetCore.Mvc.TagHelpers.AspMinifiedStyleTagHelper`
 - `Avassy.AspNetCore.Mvc.TagHelpers.AspPlaceholderForTagHelper`
 - `Avassy.AspNetCore.Mvc.TagHelpers.AspPlaceholderLabelToggleTagHelper`
 - `Avassy.AspNetCore.Mvc.TagHelpers.AspPopupTagHelper`
@@ -15,6 +17,30 @@ See a live demo at [http://demo.avassy.com/Avassy.AspNetCore.Mvc.TagHelpers](htt
 ## Usage
 
 To use these tag helpers, you must import them in your *_ViewImports.cshtml* file like so: `@addTagHelper *, Avassy.AspNetCore.Mvc.TagHelpers`.
+
+---
+
+### `AspMinifiedScriptTagHelper` minifies javascript in a SCRIPT tag.
+
+This helper minifies javascript that is placed between SCRIPT tags.
+
+Example:
+
+``
+<script type="text/javascript" asp-minified-script> ... javascript here ... </script>
+``
+
+---
+
+### `AspMinifiedStyleTagHelper` minifies css in a STYLE tag.
+
+This helper minifies css that is placed between STYLE tags.
+
+Example:
+
+``
+<style type="text/css" asp-minified-style> ... css here ... </style>
+``
 
 ---
 
