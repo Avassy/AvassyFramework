@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.0.1006</Version>
+    <Version>2.1.0.1007</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <Description>Some taghelpers for Asp.Net Core 2.1.</Description>
@@ -12,9 +12,11 @@
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.TagHelpers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.AspNetCore.Mvc.TagHelpers</RepositoryUrl>
     <PackageIconUrl>http://www.avassy.com/images/favicon/android-icon-192x192.png</PackageIconUrl>
+    <AssemblyVersion>2.1.0.1007</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AjaxMin" Version="5.14.5506.26202" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.1.0" />
   </ItemGroup>

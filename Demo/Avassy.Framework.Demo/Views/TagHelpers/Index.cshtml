@@ -137,6 +137,187 @@ public string Name { get; set; }</pre>
         <h6 style="text-decoration: underline;">Result:</h6>
         Click the icon to open the popup:  <asp-popup display-icon-css-class="fas fa-info-circle" html-content="@html" />
     </p>
+    <hr class="my-2" />
+    <h4 class="font-weight-light">asp-minified-script</h4>
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>&lt;script type="text/javascript" asp-minified-script&gt; ... javascript here ... &lt;/script&gt;</pre>
+    </p>
+
+    <p>
+        <h6 style="text-decoration: underline;">Result:</h6>
+        <!--
+        Unminified javascript:
+
+        function initialize() {
+        // Ask for rows
+        var rows = prompt("How many rows for your multiplication table?");
+
+        // Ask for columns
+        var columns = prompt("How many columns for your multiplication table?");
+
+        // Set default rows
+        if (rows === "" || rows == null) {
+        rows = 10;
+        }
+
+        // Set default columns
+        if (columns === "" || columns == null) {
+        columns = 10;
+        }
+
+        // Create the table
+        createTable(rows, columns);
+        }
+
+        function createTable(rows, columns) {
+        let columnIndex = 1;
+
+        var output = "<table border='1' width='500' cellspacing='0'cellpadding='5'>";
+
+            for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {
+            output = output + "<tr>";
+
+                while (columnIndex <= columns) {
+                output = output + "<td>" + rowIndex * columnIndex + "</td>";
+                columnIndex += 1;
+                }
+
+                output = output + "</tr>";
+
+            columnIndex = 1;
+            }
+
+            output = output + "</table>";
+
+        document.write(output);
+        }
+            Minified javascript below:
+            -->
+        <script type="text/javascript" asp-minified-script>
+            function initialize() {
+                // Ask for rows
+                var rows = prompt("How many rows for your multiplication table?");
+
+                // Ask for columns
+                var columns = prompt("How many columns for your multiplication table?");
+
+                // Set default rows
+                if (rows === "" || rows == null) {
+                    rows = 10;
+                }
+
+                // Set default columns
+                if (columns === "" || columns == null) {
+                    columns = 10;
+                }
+
+                // Create the table
+                createTable(rows, columns);
+            }
+
+            function createTable(rows, columns) {
+                let columnIndex = 1;
+
+                var output = "<table border='1' width='500' cellspacing='0'cellpadding='5'>";
+
+                for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {
+                    output = output + "<tr>";
+
+                    while (columnIndex <= columns) {
+                        output = output + "<td>" + rowIndex * columnIndex + "</td>";
+                        columnIndex += 1;
+                    }
+
+                    output = output + "</tr>";
+
+                    columnIndex = 1;
+                }
+
+                output = output + "</table>";
+
+                document.write(output);
+            }
+        </script>
+        <span>Inspect this element and search for the first script above this span</span>
+    </p>
+    <hr class="my-2" />
+    <h4 class="font-weight-light">asp-minified-style</h4>
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>&lt;style type="text/css" asp-minified-style&gt; ... css here ... &lt;/style&gt;</pre>
+    </p>
+
+    <p>
+        <h6 style="text-decoration: underline;">Result:</h6>
+        <!--
+                Unminified css:
+
+                <style type="text/css" asp-minified-style>
+            a.green:link, a.green:visited, a.green:hover, a.green:active {
+                background-color: green;
+                color: white;
+                padding: 10px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            button.button {
+                height: 36px;
+                min-width: 128px;
+            }
+        </style>
+
+                Below minfied css:
+                -->
+        <style type="text/css" asp-minified-style>
+            a.green:link, a.green:visited, a.green:hover, a.green:active {
+                background-color: green;
+                color: white;
+                padding: 10px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            button.button {
+                height: 36px;
+                min-width: 128px;
+            }
+        </style>
+        <span>Inspect this element and search for the first style tag above this span</span>
+    </p>
+
+    <hr class="my-2" />
+    <h4 class="font-weight-light">asp-placeholder-label-toggle</h4>
+    <p>
+        <h6 style="text-decoration: underline;">Razor:</h6>
+        <pre>
+&lt;style&gt;
+.form-group {
+    position: relative;
+    padding-top: 15px;
+}
+
+.toggle-label {
+    position: absolute;
+    padding: 0;
+    margin: -15px 0 0 0;
+    font-size: 11px;
+}
+&lt;/style&gt;</pre>
+        <pre>
+&lt;div class="form-group"&gt;
+    &lt;input type="text" class="form-control col-md-3" asp-placeholder-label-toggle placeholder="Enter your name" data-label-css-class="toggle-label" /&gt;
+&lt;div&gt;
+</pre>
+    </p>
+
+    <h6 style="text-decoration: underline;">Result:</h6>
+    <div class="form-group">
+        <input type="text" class="form-control col-md-3" asp-placeholder-label-toggle placeholder="Enter your name" data-label-css-class="toggle-label" />
+    </div>
 </div>
 
 @section Styles{
