@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Avassy.AspNetCore.Mvc.ActionFilters
 {
-    class ValidateToJsonArrayAttribute : ActionFilterAttribute
+    public class ValidateToJsonArrayAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
