@@ -91,10 +91,14 @@ Quick encoding to a base64 string.
 
 #### `ToByteSizeString` converts a number (long, int, double) to a formatted byte size string.
 
- var byteSizeString = "";
+Example:
+
+```
+var byteSizeString = "";
 
 int i = 125;
 byteSizeString = i.ToByteSizeString();
+
 
 // Output: 125 Bytes
 
@@ -107,6 +111,7 @@ double k = 56985.32;
 byteSizeString = k.ToByteSizeString();
 
 // Output: 55,65 KB
+```
 
 ---
 
