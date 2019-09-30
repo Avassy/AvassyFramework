@@ -108,6 +108,8 @@ byteSizeString = k.ToByteSizeString();
 
 // Output: 55,65 KB
 
+---
+
 ### `QueryableExtensions`
 
 #### `OrderBy` orders an `IQueryable` by the parameter name.
