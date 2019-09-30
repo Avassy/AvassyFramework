@@ -99,7 +99,6 @@ var byteSizeString = "";
 int i = 125;
 byteSizeString = i.ToByteSizeString();
 
-
 // Output: 125 Bytes
 
 long j = 693678789445;
