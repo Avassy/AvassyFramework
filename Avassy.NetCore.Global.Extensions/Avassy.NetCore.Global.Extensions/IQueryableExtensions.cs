@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Avassy.NetCore.Global.Extensions
 {
@@ -34,7 +37,7 @@ namespace Avassy.NetCore.Global.Extensions
 
             return query.OrderByDescending(p => property.GetValue(p));
         }
-        
+
         /// <summary>
         /// Order (then by) an IOrderedQueryable by the property name.
         /// </summary>
@@ -61,6 +64,13 @@ namespace Avassy.NetCore.Global.Extensions
             var property = typeof(T).GetProperty(propertyName);
 
             return query.ThenByDescending(p => property.GetValue(p));
+        }
+
+        public static IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> ToIncludableQueryable<TPreviousProperty, TProperty>(this IQueryable<TProperty> query)
+        {
+            return query as IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> ??
+                   throw new InvalidOperationException(
+                       "Cannot convert this IQueryable<T> ta an IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>>.");
         }
     }
 }
