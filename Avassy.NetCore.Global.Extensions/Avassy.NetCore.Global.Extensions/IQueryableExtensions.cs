@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Avassy.NetCore.Global.Extensions
 {
@@ -34,7 +36,7 @@ namespace Avassy.NetCore.Global.Extensions
 
             return query.OrderByDescending(p => property.GetValue(p));
         }
-        
+
         /// <summary>
         /// Order (then by) an IOrderedQueryable by the property name.
         /// </summary>

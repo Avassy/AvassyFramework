@@ -6,6 +6,7 @@ See [http://www.avassy.com/framework/components/Avassy.NetCore.Global.Extensions
 
 - `Avassy.NetCore.Global.Extensions.EnumerableExtensions`
 - `Avassy.NetCore.Global.Extensions.StringExtensions`
+- `Avassy.netCore.Global.Extension.NumberExtensions`
 - `Avassy.NetCore.Global.Extensions.QueryableExtensions`
 
 ## Usage
@@ -54,7 +55,7 @@ var str = "~hello* user!".RemoveSpecialCharactersAndSpaces();
 
 This is useful to create an nicely formatted URL.
 
-#### `ToBase64` converts a simple string to .
+#### `ToBase64` converts a simple string to a base64 string.
 
 ```
 var str = "~hello* user!".ToBase64();
@@ -84,6 +85,32 @@ var str = "ThisIsAPascalCaseString".ToCamelCase();
 
 Quick encoding to a base64 string.
 
+---
+
+### `NumberExtensions`
+
+#### `ToByteSizeString` converts a number (long, int, double) to a formatted byte size string.
+
+Example:
+
+```
+var byteSizeString = "";
+
+int i = 125;
+byteSizeString = i.ToByteSizeString();
+
+// Output: 125 Bytes
+
+long j = 693678789445;
+byteSizeString = j.ToByteSizeString();
+
+// Output: 646,04 GB
+
+double k = 56985.32;
+byteSizeString = k.ToByteSizeString();
+
+// Output: 55,65 KB
+```
 
 ---
 
@@ -162,5 +189,5 @@ public class Person {
 
 var list = new List<Person> { new Person { Name = "Jack", Birthday = new DateTime(1970,1,1) }, new Person { Name = "Bill", Birthday = new DateTime(1970,6,6) } };
 var queryable = list.AsQueryable();
-var orderedQueryable = queryable.OrderBy("Name").ThenByDescending("Birthday");;
-```formatted URL.
+var orderedQueryable = queryable.OrderBy("Name").ThenByDescending("Birthday");
+```
