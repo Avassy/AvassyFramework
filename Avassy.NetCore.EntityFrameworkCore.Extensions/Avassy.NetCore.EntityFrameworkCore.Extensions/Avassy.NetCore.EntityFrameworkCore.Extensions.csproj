@@ -2,7 +2,7 @@
 
    <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>2.1.0.1002-alpha-0003</Version>
+    <Version>2.1.0.1002-alpha-0005</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>AvassyBrecht Baekelandt</Company>
     <Description>Some general extension methods for Entity Framework Core 2.1.</Description>
