@@ -10,7 +10,7 @@ namespace Avassy.NetCore.EntityFrameworkCore.Extensions
     /// </summary>
     public static class QueryableExtensions
     {
-        public static IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> ToIncludableQueryable<TPreviousProperty, TProperty>(this IQueryable<TPreviousProperty> query)
+        public static IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> AsIncludableQueryable<TPreviousProperty, TProperty>(this IQueryable<TPreviousProperty> query)
         {
             return query as IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> ??
                    throw new InvalidOperationException(
