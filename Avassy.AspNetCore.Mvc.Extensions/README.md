@@ -10,7 +10,7 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 ## Usage
 
 ### `CookieAuthenticationOptionsExtensions` has some handy extension methods for authentication with cookie
-.
+
 #### `OverrideRedirectToAccessDeniedByStatusCode` overrides the default behavior when access denied with cookie authentication and replaces the result with a `HttpStatuscode`.
 
 ##### Parameters
