@@ -30,7 +30,7 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 
 Example:
 
-``
+```
 public void ConfigureServices(IServiceCollection services)
 {
     //...
@@ -97,8 +97,7 @@ public void ConfigureServices(IServiceCollection services)
         })
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
-``
-
+```
 
 #### `OverrideRedirectToLogoutByStatusCode` overrides the default behavior when not logged out with cookie authentication and replaces the result with a `HttpStatuscode`.
 
@@ -110,7 +109,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Example:
 
-``
+```
 public void ConfigureServices(IServiceCollection services)
 {
     //...
@@ -177,7 +176,7 @@ public void ConfigureServices(IServiceCollection services)
         })
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
-``
+```
 
 #### `OverrideRedirectToReturnUrlByStatusCode` overrides the default behavior when a redirect is requested in with cookie authentication and replaces the result with a `HttpStatuscode`.
 
@@ -189,7 +188,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Example:
 
-``
+```
 public void ConfigureServices(IServiceCollection services)
 {
     //...
@@ -256,7 +255,7 @@ public void ConfigureServices(IServiceCollection services)
         })
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
-``
+```
 
 ### `HtmlStringExtensions` has some handy extension methods for strings.
 
