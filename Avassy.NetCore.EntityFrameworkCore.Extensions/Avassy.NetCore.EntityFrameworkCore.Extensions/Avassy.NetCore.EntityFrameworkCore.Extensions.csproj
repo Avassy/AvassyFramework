@@ -2,7 +2,7 @@
 
    <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>2.1.0.1001</Version>
+    <Version>2.1.0.1002-alpha-0007</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>AvassyBrecht Baekelandt</Company>
     <Description>Some general extension methods for Entity Framework Core 2.1.</Description>
@@ -11,7 +11,7 @@
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.NetCore.EntityFrameworkCore.Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.NetCore.EntityFrameworkCore.Extensions</RepositoryUrl>
     <PackageIconUrl>http://www.avassy.com/images/favicon/android-icon-192x192.png</PackageIconUrl>
-    <AssemblyVersion>2.1.0.1001</AssemblyVersion>
+    <AssemblyVersion>2.1.0.1002</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -10,11 +10,9 @@ namespace Avassy.NetCore.EntityFrameworkCore.Extensions
     /// </summary>
     public static class QueryableExtensions
     {
-        public static IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> AsIncludableQueryable<TPreviousProperty, TProperty>(this IQueryable<TPreviousProperty> query)
+        public static IIncludableQueryable<TPreviousProperty, ICollection<TProperty>> AsIncludableQueryable<TPreviousProperty, TProperty>(this IQueryable<TPreviousProperty> query)
         {
-            return query as IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>> ??
-                   throw new InvalidOperationException(
-                       "Cannot convert this IQueryable<T> ta an IIncludableQueryable<TPreviousProperty, IEnumerable<TProperty>>.");
+            return query as IIncludableQueryable<TPreviousProperty, ICollection<TProperty>> ?? throw new InvalidOperationException("Cannot convert this to an IIncludableQueryable<TPreviousProperty, ICollection<TProperty>>.");
         }
     }
 }
