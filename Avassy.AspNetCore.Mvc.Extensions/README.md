@@ -19,6 +19,76 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 - message (string, optional) : The message you want to send in the body of the response, this has content type "text/plain".
 - urlsToOverride (params string[]): One or more relative paths that should return a `HttpStatusCode` (e.g. "/api").
 
+Example:
+
+```
+public void ConfigureServices(IServiceCollection services)
+{
+    //...
+    
+    services
+        .AddAuthentication(options =>
+        {
+            options.DefaultScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultSignInScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+        })
+        .AddIdentityCookies(options =>
+        {
+            options.ApplicationCookie.Configure(cookieOptions =>
+            {
+                cookieOptions.OverrideRedirectToAccessDeniedByStatusCode(HttpStatusCode.Forbidden, "Nope, you're not allowed to do that!", "/api");
+                cookieOptions.OverrideRedirectToLoginByStatusCode(HttpStatusCode.Unauthorized, "Nope, you must be signed in to do that!", "/api");
+                cookieOptions.OverrideRedirectToLogoutByStatusCode(HttpStatusCode.Unauthorized, "Nope, you must be signed in to do that!", "/api");
+
+                cookieOptions.Cookie.HttpOnly = true;
+                cookieOptions.Cookie.Expiration = TimeSpan.FromDays(150);
+                cookieOptions.Cookie.SameSite = SameSiteMode.None;
+                //cookieOptions.LoginPath = "/account/sign-in"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
+                //cookieOptions.LogoutPath = "/account/sign-out"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
+                //cookieOptions.AccessDeniedPath = "/account/access-denied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
+                cookieOptions.SlidingExpiration = true;
+            });
+
+            options.ExternalCookie.Configure(cookieOptions =>
+            {
+                cookieOptions.OverrideRedirectToAccessDeniedByStatusCode(HttpStatusCode.Forbidden, "Nope, you're not allowed to do that!", "/api");
+                cookieOptions.OverrideRedirectToLoginByStatusCode(HttpStatusCode.Unauthorized, "Nope, you must be signed in to do that!", "/api");
+                cookieOptions.OverrideRedirectToLogoutByStatusCode(HttpStatusCode.Unauthorized, "Nope, you must be signed in to do that!", "/api");
+
+                cookieOptions.Cookie.HttpOnly = true;
+                cookieOptions.Cookie.Expiration = TimeSpan.FromDays(150);
+                cookieOptions.Cookie.SameSite = SameSiteMode.None;
+                //cookieOptions.LoginPath = "/account/sign-in"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
+                //cookieOptions.LogoutPath = "/account/sign-out"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
+                //cookieOptions.AccessDeniedPath = "/account/access-denied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
+                cookieOptions.SlidingExpiration = true;
+            });
+        });
+
+	//...		
+
+    services
+        .AddMvc(options =>
+        {
+            if (!Debugger.IsAttached)
+            {
+                options.RequireHttpsPermanent = true;
+            }
+
+            options.Filters.Add(typeof(ValidateToJsonArrayAttribute));
+        })
+        .AddJsonOptions(options =>
+        {
+            options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            options.SerializerSettings.Converters.Add(new StringEnumConverter());
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+        })
+        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+}
+```
 
 #### `OverrideRedirectToLoginByStatusCode` overrides the default behavior when not logged in with cookie authentication and replaces the result with a `HttpStatuscode`.
 
