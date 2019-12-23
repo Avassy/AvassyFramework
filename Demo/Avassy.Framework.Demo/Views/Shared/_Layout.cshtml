@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Avassy.AspNetCore.Mvc.Extensions;
+
+@{
     var activePage = this.ViewBag.ActivePage;
 }
 
@@ -41,6 +43,14 @@
     <script src="~/lib/moment/moment.js"></script>
 
     @RenderSection("Scripts", required: false)
+
+
+    @if (!this.Html.ShouldDisableGA())
+    {
+        <!-- GA fake script placeholder -->
+        <!-- When this comment is visible this means that the attribute "Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsActionFilterAttribute" is not set on this controller or controller action -->
+    }
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
