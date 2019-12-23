@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.ActionFilters\Avassy.AspNetCore.Mvc.ActionFilters\Avassy.AspNetCore.Mvc.ActionFilters.csproj" />
+    <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.Extensions\Avassy.AspNetCore.Mvc.Extensions\Avassy.AspNetCore.Mvc.Extensions.csproj" />
     <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha\Avassy.AspNetCore.Mvc.InvisibleReCaptcha.csproj" />
     <ProjectReference Include="..\..\Avassy.AspNetCore.Mvc.TagHelpers\Avassy.AspNetCore.Mvc.TagHelpers\Avassy.AspNetCore.Mvc.TagHelpers.csproj" />
   </ItemGroup>
