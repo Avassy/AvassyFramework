@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.0.1004</Version>
+    <Version>2.1.0.1005</Version>
     <Description>Some extension methods for Asp.Net Core 2.1.</Description>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
@@ -13,13 +13,14 @@
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.AspNetCore.Mvc.Extensions</RepositoryUrl>
     <PackageIconUrl>http://www.avassy.com/images/favicon/android-icon-192x192.png</PackageIconUrl>
-    <AssemblyVersion>2.1.0.1004</AssemblyVersion>
+    <AssemblyVersion>2.1.0.1005</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
