@@ -8,11 +8,26 @@ namespace Avassy.AspNetCore.Mvc.Extensions
 {
     public static class HtmlHelperExtensions
     {
-        public static bool ShouldDisableGA(this IHtmlHelper<dynamic> helper)
+        public static HtmlString CreateGAAsyncScript(this IHtmlHelper<dynamic> helper, string measurementId)
         {
-            helper.ViewContext.RouteData.Values.TryGetValue("DisableGA", out var shouldDisableGA);
+            if (string.IsNullOrEmpty(measurementId))
+            {
+                throw new ArgumentException("The measurementId cannot be null or empty. Did you forget to add it?", nameof(measurementId));
+            }
 
-            return (bool?)shouldDisableGA ?? false;
+            if (helper.ShouldDisableGA())
+            {
+                return HtmlString.Empty;
+            }
+
+            return new HtmlString($@"<!-- Google Analytics -->
+                                     <script>
+                                         window.ga=window.ga||function(){{(ga.q = ga.q ||[]).push(arguments)}};ga.l=+new Date;
+                                         ga('create', '{measurementId}', 'auto');
+                                         ga('send', 'pageview');
+                                     </script>
+                                     <script async src='https://www.google-analytics.com/analytics.js'></script>
+                                     <!-- End Google Analytics -->");
         }
 
         public static HtmlString CreateGAScript(this IHtmlHelper<dynamic> helper, string measurementId)
@@ -36,28 +51,6 @@ namespace Avassy.AspNetCore.Mvc.Extensions
                                     <!-- End Google Analytics (async) -->");
         }
 
-        public static HtmlString CreateGAAsyncScript(this IHtmlHelper<dynamic> helper, string measurementId)
-        {
-            if (string.IsNullOrEmpty(measurementId))
-            {
-                throw new ArgumentException("The measurementId cannot be null or empty. Did you forget to add it?", nameof(measurementId));
-            }
-
-            if (helper.ShouldDisableGA())
-            {
-                return HtmlString.Empty;
-            }
-
-            return new HtmlString($@"<!-- Google Analytics -->
-                                     <script>
-                                         window.ga=window.ga||function(){{(ga.q = ga.q ||[]).push(arguments)}};ga.l=+new Date;
-                                         ga('create', '{measurementId}', 'auto');
-                                         ga('send', 'pageview');
-                                     </script>
-                                     <script async src='https://www.google-analytics.com/analytics.js'></script>
-                                     <!-- End Google Analytics -->");
-        }
-
         public static HtmlString CreateGTMScript(this IHtmlHelper<dynamic> helper, string containerId)
         {
             if (string.IsNullOrEmpty(containerId))
@@ -65,7 +58,7 @@ namespace Avassy.AspNetCore.Mvc.Extensions
                 throw new ArgumentException("The containerId cannot be null or empty. Did you forget to add it?", nameof(containerId));
             }
 
-            if (helper.ShouldDisableGA())
+            if (helper.ShouldDisableGTM())
             {
                 return HtmlString.Empty;
             }
@@ -75,6 +68,20 @@ namespace Avassy.AspNetCore.Mvc.Extensions
                                         (function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}})(window,document,'script','dataLayer','{containerId}');
                                     </script>
                                     <!-- End Google Tag Manager -->");
+        }
+
+        public static bool ShouldDisableGA(this IHtmlHelper<dynamic> helper)
+        {
+            helper.ViewContext.RouteData.Values.TryGetValue("DisableGA", out var shouldDisableGA);
+
+            return (bool?)shouldDisableGA ?? false;
+        }
+
+        public static bool ShouldDisableGTM(this IHtmlHelper<dynamic> helper)
+        {
+            helper.ViewContext.RouteData.Values.TryGetValue("DisableGTM", out var shouldDisableGTM);
+
+            return (bool?)shouldDisableGTM ?? false;
         }
     }
 }

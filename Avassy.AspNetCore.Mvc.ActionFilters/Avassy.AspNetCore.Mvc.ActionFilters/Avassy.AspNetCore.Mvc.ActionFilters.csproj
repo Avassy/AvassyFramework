@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.1.0.1006</Version>
+    <Version>2.1.0.1007</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <Description>Some action filters for Asp.Net Core 2.1.</Description>
@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/Avassy/AvassyFramework/tree/master/Avassy.AspNetCore.Mvc.ActionFilters</RepositoryUrl>
     <PackageProjectUrl>http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.ActionFilters</PackageProjectUrl>
     <PackageIconUrl>http://www.avassy.com/images/favicon/favicon-96x96.png</PackageIconUrl>
-    <AssemblyVersion>2.1.0.1006</AssemblyVersion>
+    <AssemblyVersion>2.1.0.1007</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
