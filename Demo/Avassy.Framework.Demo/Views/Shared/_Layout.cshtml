@@ -44,12 +44,12 @@
 
     @RenderSection("Scripts", required: false)
 
+    @this.Html.CreateGAAsyncScript("fake");
 
-    @if (!this.Html.ShouldDisableGA())
-    {
-        <!-- GA fake script placeholder -->
-        <!-- When this comment is visible this means that the attribute "Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsActionFilterAttribute" is not set on this controller or controller action -->
-    }
+    @this.Html.CreateGAScript("fake");
+
+    @this.Html.CreateGTMScript("fake");
+
 
 </head>
 <body>
