@@ -5,7 +5,7 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 ## Classes
 
 - `Avassy.AspNetCore.Mvc.Extensions.CookieAuthenticationOptionsExtensions`
--  `Avassy.AspNetCore.Mvc.Extensions.HtmlHelperExtensions`
+- `Avassy.AspNetCore.Mvc.Extensions.HtmlHelperExtensions`
 - `Avassy.AspNetCore.Mvc.Extensions.HtmlStringExtensions`
 
 ## Usage
