@@ -44,17 +44,17 @@ Asp.Net Core (2.1):
 // ...
 
 services
-		.AddDbContext<Avassy.NetCore.Global.Geo.Data.Contexts.GeoDbContext>(
-			options =>
+	.AddDbContext<Avassy.NetCore.Global.Geo.Data.Contexts.GeoDbContext>(
+		options =>
+		{
+			options.UseSqlServer(this.Configuration.GetConnectionString("Geo"), sqlOptions =>
 			{
-				options.UseSqlServer(this.Configuration.GetConnectionString("Geo"), sqlOptions =>
-				{
-					sqlOptions.EnableRetryOnFailure(
-						maxRetryCount: 5,
-						maxRetryDelay: TimeSpan.FromSeconds(5),
-						errorNumbersToAdd: null);
-				});
-			}, ServiceLifetime.Transient)
+				sqlOptions.EnableRetryOnFailure(
+					maxRetryCount: 5,
+					maxRetryDelay: TimeSpan.FromSeconds(5),
+					errorNumbersToAdd: null);
+			});
+		}, ServiceLifetime.Transient)
 ```
 
 .Net Core (2.1):
