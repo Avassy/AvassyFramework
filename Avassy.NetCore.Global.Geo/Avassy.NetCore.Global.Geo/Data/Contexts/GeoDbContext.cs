@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Avassy.NetCore.Global.Geo.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +20,86 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
             : base(options)
         {
 
+        }
+
+        public IEnumerable<Country> GetCountries()
+        {
+            return this.Countries.AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<Country>> GetCountriesAsync()
+        {
+            return this.Countries.ToAsyncEnumerable();
+        }
+
+        public IEnumerable<Country> GetCountriesAndIncudeStates()
+        {
+            return this.Countries.Include(c => c.States).AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<Country>> GetCountriesAndIncudeStatesAsync()
+        {
+            return this.Countries.Include(c => c.States).ToAsyncEnumerable();
+        }
+
+        public IEnumerable<State> GetStates()
+        {
+            return this.States.AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<State>> GetStatesAsync()
+        {
+            return this.States.ToAsyncEnumerable();
+        }
+
+        public IEnumerable<State> GetStatesAndIncludeCountry()
+        {
+            return this.States.Include(s => s.Country).AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<State>> GetStatesAndIncludeCountryAsync()
+        {
+            return this.States.Include(s => s.Country).ToAsyncEnumerable();
+        }
+
+        public IEnumerable<State> GetStatesForCountry(int countryId)
+        {
+            return this.States.Where(s => s.CountryId == countryId).AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<State>> GetStatesForCountryAsync(int countryId)
+        {
+            return this.States.Where(s => s.CountryId == countryId).ToAsyncEnumerable();
+        }
+
+        public IEnumerable<State> GetStatesForCountryAndIncludeCountry(int countryId)
+        {
+            return this.States.Include(s => s.Country).Where(s => s.CountryId == countryId).AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<State>> GetStatesForCountryAndIncludeCountryAsync(int countryId)
+        {
+            return this.States.Include(s => s.Country).Where(s => s.CountryId == countryId).ToAsyncEnumerable();
+        }
+
+        public IEnumerable<State> GetStatesForCountry(string countryCode)
+        {
+            return this.States.Where(s => s.Code == countryCode).AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<State>> GetStatesForCountryAsync(string countryCode)
+        {
+            return this.States.Where(s => s.Code == countryCode).ToAsyncEnumerable();
+        }
+
+        public IEnumerable<State> GetStatesForCountryAndIncludeCountry(string countryCode)
+        {
+            return this.States.Include(s => s.Country).Where(s => s.Code == countryCode).AsEnumerable();
+        }
+
+        public async Task<IAsyncEnumerable<State>> GetStatesForCountryAndIncludeCountryAsync(string countryCode)
+        {
+            return this.States.Include(s => s.Country).Where(s => s.Code == countryCode).ToAsyncEnumerable();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
