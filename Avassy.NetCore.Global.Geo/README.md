@@ -111,7 +111,7 @@ The database will be created and the data will be seeded to your new database.
 
 - includeCountries (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
 
-#### `GetStatesAsync` gets all the states assynchronously.
+#### `GetStatesAsync` gets all the states asynchronously.
 
 ##### Parameters:
 
