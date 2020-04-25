@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.AspNetCore.Mvc.Angul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.NetCore.Global.Attributes", "Avassy.NetCore.Global.Attributes\Avassy.NetCore.Global.Attributes\Avassy.NetCore.Global.Attributes.csproj", "{C8A91038-1D8E-47F1-A9AA-114A9D3AFAD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avassy.NetCore.EntityFrameworkCore.Extensions", "Avassy.NetCore.EntityFrameworkCore.Extensions\Avassy.NetCore.EntityFrameworkCore.Extensions\Avassy.NetCore.EntityFrameworkCore.Extensions.csproj", "{BAB7BCF1-405E-4EB1-95BD-2FB0D02DC5DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.NetCore.EntityFrameworkCore.Extensions", "Avassy.NetCore.EntityFrameworkCore.Extensions\Avassy.NetCore.EntityFrameworkCore.Extensions\Avassy.NetCore.EntityFrameworkCore.Extensions.csproj", "{BAB7BCF1-405E-4EB1-95BD-2FB0D02DC5DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avassy.NetCore.Global.Geo", "Avassy.NetCore.Global.Geo\Avassy.NetCore.Global.Geo\Avassy.NetCore.Global.Geo.csproj", "{AB7E8A76-EA0B-4DBD-895D-0EA5CC7FE212}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{BAB7BCF1-405E-4EB1-95BD-2FB0D02DC5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAB7BCF1-405E-4EB1-95BD-2FB0D02DC5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAB7BCF1-405E-4EB1-95BD-2FB0D02DC5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB7E8A76-EA0B-4DBD-895D-0EA5CC7FE212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB7E8A76-EA0B-4DBD-895D-0EA5CC7FE212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB7E8A76-EA0B-4DBD-895D-0EA5CC7FE212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB7E8A76-EA0B-4DBD-895D-0EA5CC7FE212}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

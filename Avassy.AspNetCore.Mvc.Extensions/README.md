@@ -5,6 +5,7 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.Extensions 
 ## Classes
 
 - `Avassy.AspNetCore.Mvc.Extensions.CookieAuthenticationOptionsExtensions`
+- `Avassy.AspNetCore.Mvc.Extensions.HtmlHelperExtensions`
 - `Avassy.AspNetCore.Mvc.Extensions.HtmlStringExtensions`
 
 ## Usage
@@ -327,11 +328,97 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+### `Avassy.AspNetCore.Mvc.Extensions.HtmlHelperExtensions` contains `IHtmlHelper` extension methods
+
+#### `CreateGAAsyncScript` creates the asynchronous script code for Google Analytics.
+
+If the ` Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsActionFilterAttribute` attribute is set on the controller or action, this method will generate an empty string.
+
+See documentation on https://developers.google.com/analytics/devguides/collection/analyticsjs.
+
+##### Parameters
+
+- measurementId (string, required): The measurement ID that you created in the Google Analytics console.
+
+Example:
+
+```
+\\ In your Razor view
+
+@this.Html.CreateGAAsyncScript("UA-XXXXX-Y");
+```
+
+#### `CreateGAScript` creates the script code for Google Analytics.
+
+If the ` Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsActionFilterAttribute` attribute is set on the controller or action, this method will generate an empty string.
+
+See documentation on https://developers.google.com/analytics/devguides/collection/analyticsjs.
+
+##### Parameters
+
+- measurementId (string, required): The measurement ID that you created in the Google Analytics console.
+
+Example:
+
+```
+\\ In your Razor view
+
+@this.Html.CreateGAScript("UA-XXXXX-Y");
+```
+
+#### `CreateGTMScript` creates the script code for Google Tag Manager.
+
+If the ` Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleTagManagerActionFilterAttribute` attribute is set on the controller or action, this method will generate an empty string.
+
+See documentation on https://developers.google.com/tag-manager/quickstart.
+
+##### Parameters
+
+- containerId (string, required): The container ID that you created in the Google Tag Manager console.
+
+Example:
+
+```
+\\ In your Razor view
+
+@this.Html.CreateGTMScript("GTM-XXXX");
+```
+
+#### `ShouldDisableGA` checks if the `Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsAttribute` attribute is set on the controller or action.
+
+If the `Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsAttribute` attribute is set on the controller or action, this method returns false.
+
+Example:
+
+```
+\\ In your Razor view
+
+@if (!this.Html.ShouldDisableGA())
+{
+    // Put your GA code here
+}
+```
+
+#### `ShouldDisableGTM` checks if the `Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleTagManagerActionFilterAttribute` attribute is set on the controller or action.
+
+If the `Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleTagManagerActionFilterAttribute` attribute is set on the controller or action, this method returns false.
+
+Example:
+
+```
+\\ In your Razor view
+
+@if (!this.Html.ShouldDisableGTM())
+{
+    // Put your GTM code here
+}
+```
+
 ### `HtmlStringExtensions` has some handy extension methods for strings.
 
 #### `ToEscapedJSHtmlString` escapes a `HtmlString`.
 
-This is useful for rendering HTML strings on you page without having to worry about XSS. 
+This is useful for rendering HTML strings on you page without having to worry about JS injection. 
 
 Example:
 

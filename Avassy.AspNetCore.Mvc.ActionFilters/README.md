@@ -4,10 +4,44 @@ See http://www.avassy.com/framework/components/Avassy.AspNetCore.Mvc.ActionFilte
 
 ## Classes
 
+- `Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleAnalyticsActionFilterAttribute`
+- `Avassy.AspNetCore.Mvc.ActionFilters.DisableGoogleTagManagerActionFilterAttribute`
 - `Avassy.AspNetCore.Mvc.ActionFilters.ExcludeUserAgentsAttribute`
 - `Avassy.AspNetCore.Mvc.ActionFilters.ValidateToJsonArrayAttribute`
 
 ## Usage
+
+### `DisableGoogleAnalyticsActionFilterAttribute` is a helper attribute for the Google Analytics extension methods in `Avassy.AspNetCore.Mvc.Extensions.HtmlHelper`.
+
+Example:
+
+```
+[DisableGoogleAnalytics]
+[Route("Admin")]
+public class AdminController : Controller
+{        
+    public IActionResult Index()
+    {
+        return this.View();
+    }
+}
+```
+
+### `DisableGoogleTagManagerActionFilterAttribute` is a helper attribute for the Google Tag Manager extension methods in `Avassy.AspNetCore.Mvc.Extensions.HtmlHelper`.
+
+Example:
+
+```
+[DisableGoogleTagManager]
+[Route("Admin")]
+public class AdminController : Controller
+{        
+    public IActionResult Index()
+    {
+        return this.View();
+    }
+}
+```
 
 ### `ExcludeUserAgentsAttribute` excludes specified user agents (UA) by UA string.
 
@@ -81,5 +115,3 @@ When the modelstate is not valid the result will be a HttpStatusCodeResult 422 w
     }
 ]
 ````
-
-
