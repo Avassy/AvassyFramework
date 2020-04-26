@@ -114,7 +114,7 @@ The database will be created and the data will be seeded to your new database.
 - isoCode (string, required): The iso code of the country.
 - includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
 
-#### `GetCountryAsync` gets the country by iso code.
+#### `GetCountryAsync` gets the country by iso code asynchronously.
 
 ##### Parameters:
 
