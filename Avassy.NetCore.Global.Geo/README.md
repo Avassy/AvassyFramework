@@ -93,25 +93,69 @@ The database will be created and the data will be seeded to your new database.
 
 ### `GeoDbContext`
 
+#### `GetCountry` gets the country by ID.
+
+##### Parameters:
+
+- id (int, required): The ID of the country.
+- includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
+
+#### `GetCountryAsync` gets the country by ID asynchronously.
+
+##### Parameters:
+
+- id (int, required): The ID of the country.
+- includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
+
+#### `GetCountry` gets the country by iso code.
+
+##### Parameters:
+
+- isoCode (string, required): The iso code of the country.
+- includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
+
+#### `GetCountryAsync` gets the country by iso code.
+
+##### Parameters:
+
+- isoCode (string, required): The iso code of the country asynchronously.
+- includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
+
 #### `GetCountries` gets all the countries.
 
 ##### Parameters:
 
 - includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
 
-#### `GetCountriesAsync` gets all the countries asynchronously.
+#### `GetState` gets the state by ID.
 
 ##### Parameters:
 
-- includeStates (boolean, optional, default false): Specifies if you want to include the States IEnumerable in the Country object.
+- id (int, required): The ID of the state.
+- includeCountry (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
+
+#### `GetStateAsync` gets the state by ID asynchronously.
+
+##### Parameters:
+
+- id (int, required): The ID of the state.
+- includeCountry (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
+
+#### `GetState` gets the state by iso code.
+
+##### Parameters:
+
+- isoCode (string, required): The iso code of the state.
+- includeCountry (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
+
+#### `GetStateAsync` gets the state by iso code asynchronously.
+
+##### Parameters:
+
+- isoCode (string, required): The iso code of the state.
+- includeCountry (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
 
 #### `GetStates` gets all the states.
-
-##### Parameters:
-
-- includeCountries (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
-
-#### `GetStatesAsync` gets all the states assynchronously.
 
 ##### Parameters:
 
@@ -124,21 +168,7 @@ The database will be created and the data will be seeded to your new database.
 - countryId (int, required): The ID of the country
 - includeCountries (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
 
-#### `GetStatesForCountryAsync` gets all the states for a specific country by ID asynchronously.
-
-##### Parameters:
-
-- countryId (int, required): The ID of the country
-- includeCountries (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
-
 #### `GetStatesForCountry` gets all the states for a specific country by country code.
-
-##### Parameters:
-
-- countryCode (string, required): The country code
-- includeCountries (boolean, optional, default false): Specifies if you want to include the Country object in the State object.
-
-#### `GetStatesForCountryAsync` gets all the states for a specific country by country code asynchronously.
 
 ##### Parameters:
 
