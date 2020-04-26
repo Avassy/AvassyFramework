@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Avassy.NetCore.Global.Geo.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Extensions.Internal;
 using Microsoft.Extensions.Configuration;
 
 namespace Avassy.NetCore.Global.Geo.Data.Contexts
@@ -22,14 +23,49 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
 
         }
 
+        public Country GetCountry(int id, bool includeStates = false)
+        {
+            return includeStates ? this.Countries.Include(c => c.States).FirstOrDefault(c => c.Id == id) : this.Countries.FirstOrDefault(c => c.Id == id);
+        }
+
+        public Task<Country> GetCountryAsync(int id, bool includeStates = false)
+        {
+            return includeStates ? this.Countries.Include(c => c.States).FirstOrDefaultAsync(c => c.Id == id) : this.Countries.FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public Country GetCountry(string isoCode, bool includeStates = false)
+        {
+            return includeStates ? this.Countries.Include(c => c.States).FirstOrDefault(c => c.IsoCode == isoCode) : this.Countries.FirstOrDefault(c => c.IsoCode == isoCode);
+        }
+
+        public Task<Country> GetCountryAsync(string isoCode, bool includeStates = false)
+        {
+            return includeStates ? this.Countries.Include(c => c.States).FirstOrDefaultAsync(c => c.IsoCode == isoCode) : this.Countries.FirstOrDefaultAsync(c => c.IsoCode == isoCode);
+        }
+
         public IEnumerable<Country> GetCountries(bool includeStates = false)
         {
             return includeStates ? this.Countries.Include(c => c.States) : this.Countries.AsEnumerable();
         }
 
-        public async Task<IAsyncEnumerable<Country>> GetCountriesAsync(bool includeStates = false)
+        public State GetState(int id, bool includeCountry = false)
         {
-            return includeStates ? this.Countries.Include(c => c.States).ToAsyncEnumerable() : this.Countries.ToAsyncEnumerable();
+            return includeCountry ? this.States.Include(s => s.Country).FirstOrDefault(s => s.Id == id) : this.States.FirstOrDefault(s => s.Id == id);
+        }
+
+        public Task<State> GetStateAsync(int id, bool includeCountry = false)
+        {
+            return includeCountry ? this.States.Include(s => s.Country).FirstOrDefaultAsync(s => s.Id == id) : this.States.FirstOrDefaultAsync(s => s.Id == id);
+        }
+
+        public State GetState(string code, bool includeCountry = false)
+        {
+            return includeCountry ? this.States.Include(s => s.Country).FirstOrDefault(s => s.Code == code) : this.States.FirstOrDefault(s => s.Code == code);
+        }
+
+        public Task<State> GetStateAsync(string code, bool includeCountry = false)
+        {
+            return includeCountry ? this.States.Include(s => s.Country).FirstOrDefaultAsync(s => s.Code == code) : this.States.FirstOrDefaultAsync(s => s.Code == code);
         }
 
         public IEnumerable<State> GetStates(bool includeCountries = false)
@@ -37,32 +73,15 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
             return includeCountries ? this.States.Include(s => s.Country).AsEnumerable() : this.States.AsEnumerable();
         }
 
-        public async Task<IAsyncEnumerable<State>> GetStatesAsync(bool includeCountries = false)
-        {
-            return includeCountries ? this.States.Include(s => s.Country).ToAsyncEnumerable() : this.States.ToAsyncEnumerable();
-        }
-        
         public IEnumerable<State> GetStatesForCountry(int countryId, bool includeCountries = false)
         {
             return includeCountries ? this.States.Include(s => s.Country).Where(s => s.CountryId == countryId).AsEnumerable() :  this.States.Where(s => s.CountryId == countryId).AsEnumerable();
         }
 
-        public async Task<IAsyncEnumerable<State>> GetStatesForCountryAsync(int countryId, bool includeCountries = false)
-        {
-            return includeCountries ?  this.States.Include(s => s.Country).Where(s => s.CountryId == countryId).ToAsyncEnumerable() : this.States.Where(s => s.CountryId == countryId).ToAsyncEnumerable();
-        }
-        
-
         public IEnumerable<State> GetStatesForCountry(string countryCode, bool includeCountries = false)
         {
             return includeCountries ? this.States.Include(s => s.Country).Where(s => s.Code == countryCode).AsEnumerable() : this.States.Where(s => s.Code == countryCode).AsEnumerable();
         }
-
-        public async Task<IAsyncEnumerable<State>> GetStatesForCountryAsync(string countryCode, bool includeCountries = false)
-        {
-            return includeCountries ? this.States.Include(s => s.Country).Where(s => s.Code == countryCode).ToAsyncEnumerable() : this.States.Where(s => s.Code == countryCode).ToAsyncEnumerable();
-        }
-        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -76,8 +95,6 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
                 .HasOne<Country>(state => state.Country)
                 .WithMany(country => country.States)
                 .HasForeignKey(state => state.CountryId);
-
-
 
             // Countries
 
