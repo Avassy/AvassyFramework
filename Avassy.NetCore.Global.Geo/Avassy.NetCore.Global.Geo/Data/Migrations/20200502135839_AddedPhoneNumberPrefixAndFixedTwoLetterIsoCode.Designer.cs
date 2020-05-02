@@ -3,14 +3,16 @@ using Avassy.NetCore.Global.Geo.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Avassy.NetCore.Global.Geo.Data.Migrations
 {
     [DbContext(typeof(GeoDbContext))]
-    partial class GeoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200502135839_AddedPhoneNumberPrefixAndFixedTwoLetterIsoCode")]
+    partial class AddedPhoneNumberPrefixAndFixedTwoLetterIsoCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

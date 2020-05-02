@@ -4283,5 +4283,4 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
             builder.Entity<State>().HasData(new State(3935, "00", "N/A", 234));
         }
     }
-
 }
