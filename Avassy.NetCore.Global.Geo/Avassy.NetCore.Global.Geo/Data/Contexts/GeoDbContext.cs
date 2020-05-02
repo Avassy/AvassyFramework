@@ -16,13 +16,6 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
         public DbSet<Country> Countries { get; set; }
 
         public DbSet<State> States { get; set; }
-
-        public GeoDbContext(DbContextOptions options)
-            : base(options)
-        {
-
-        }
-
         public GeoDbContext(DbContextOptions<GeoDbContext> options)
             : base(options)
         {
