@@ -23,6 +23,12 @@ namespace Avassy.NetCore.Global.Geo.Data.Contexts
 
         }
 
+        public GeoDbContext(DbContextOptions<GeoDbContext> options)
+            : base(options)
+        {
+
+        }
+
         public Country GetCountry(int id, bool includeStates = false)
         {
             return includeStates ? this.Countries.Include(c => c.States).FirstOrDefault(c => c.Id == id) : this.Countries.FirstOrDefault(c => c.Id == id);
