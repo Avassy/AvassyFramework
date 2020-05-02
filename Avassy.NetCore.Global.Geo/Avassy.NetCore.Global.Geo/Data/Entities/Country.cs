@@ -19,7 +19,14 @@ namespace Avassy.NetCore.Global.Geo.Data.Entities
             this.Id = id;
         }
 
+        public Country(string isoCode, string name, int id, string phoneNumberPrefix) : this(isoCode, name, id)
+        {
+            this.PhoneNumberPrefix = phoneNumberPrefix;
+        }
+
         public string IsoCode { get; set; }
+
+        public string PhoneNumberPrefix { get; set; }
 
         public virtual IEnumerable<State> States { get; set; }
     }
