@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>2.1.2.2001-alpha-0001</Version>
+    <Version>2.1.2.2001-alpha-0002</Version>
     <Authors>Brecht Baekelandt</Authors>
     <Company>Avassy</Company>
     <Description>Contains a DbContext for countries and states ans also contains the data for .Net Core 2.1.</Description>

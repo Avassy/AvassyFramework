@@ -9,24 +9,22 @@ using Microsoft.Extensions.Configuration;
 
 namespace Avassy.NetCore.Global.Geo
 {
-    internal sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<GeoDbContext>
-    {
-        public GeoDbContext CreateDbContext(string[] args)
-        {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile("appsettings.development.json")
-                .AddJsonFile("appsettings.production.json")
-                .Build();
+    //internal sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<GeoDbContext>
+    //{
+    //    public GeoDbContext CreateDbContext(string[] args)
+    //    {
+    //        var configuration = new ConfigurationBuilder()
+    //            .SetBasePath(Directory.GetCurrentDirectory())
+    //            .AddJsonFile("appsettings.json")
+    //            .Build();
 
-            var builder = new DbContextOptionsBuilder<GeoDbContext>();
+    //        var builder = new DbContextOptionsBuilder<GeoDbContext>();
 
-            var connectionString = configuration.GetConnectionString("Geo");
+    //        var connectionString = configuration.GetConnectionString("Geo");
 
-            builder.UseSqlServer(connectionString);
+    //        builder.UseSqlServer(connectionString);
 
-            return new GeoDbContext(builder.Options);
-        }
-    }
+    //        return new GeoDbContext(builder.Options);
+    //    }
+    //}
 }
